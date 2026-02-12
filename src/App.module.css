@@ -1,11 +1,7 @@
-/* ══════════════════════════════════════════════════════════
-   Formation IA — Landing Page
-   Aesthetic: Dark luxe techno · Glassmorphism · Purple noir
-   ══════════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
-/* ── Variables ── */
+
 :root {
   --bg: #000000;
   --bg-subtle: #0c0c1d;
@@ -38,7 +34,6 @@
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
 }
 
-/* ── Page ── */
 .page {
   min-height: 100vh;
   background: linear-gradient(90deg, #000000 0%, #0a0a2e 25%, #1a1a6e 50%, #2828a0 75%, #3533cd 100%);
@@ -48,7 +43,6 @@
   position: relative;
 }
 
-/* ── Grain overlay ── */
 .grain {
   position: fixed;
   inset: 0;
@@ -59,10 +53,6 @@
   background-repeat: repeat;
   background-size: 256px 256px;
 }
-
-/* ══════════════════════════════════════════
-   Navigation
-   ══════════════════════════════════════════ */
 
 .nav {
   position: fixed;
@@ -326,7 +316,6 @@
   50% { transform: translate(-50%, -40px) scale(1.15); }
 }
 
-/* Hero content */
 .heroInner {
   position: relative;
   z-index: 2;
@@ -365,7 +354,7 @@
   50% { opacity: 0.7; box-shadow: 0 0 0 8px rgba(167, 139, 250, 0); }
 }
 
-/* Title */
+
 .title {
   font-family: var(--font-display);
   font-size: clamp(36px, 7.5vw, 76px);
@@ -385,7 +374,6 @@
   background-clip: text;
 }
 
-/* Subtitle */
 .subtitle {
   font-size: clamp(16px, 2.5vw, 19px);
   line-height: 1.7;
@@ -449,9 +437,6 @@
   animation-delay: 0.65s;
 }
 
-/* ══════════════════════════════════════════
-   Stats
-   ══════════════════════════════════════════ */
 
 .stats {
   padding: 40px 24px 80px;
@@ -509,9 +494,6 @@
   color: var(--text-secondary);
 }
 
-/* ══════════════════════════════════════════
-   Features
-   ══════════════════════════════════════════ */
 
 .features {
   padding: 40px 24px 120px;
@@ -522,7 +504,6 @@
   margin: 0 auto;
 }
 
-/* Shared section head */
 .sectionHead {
   text-align: center;
   margin-bottom: 64px;
@@ -552,7 +533,6 @@
   margin: 0;
 }
 
-/* Feature grid */
 .featGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -611,9 +591,6 @@
   margin: 0;
 }
 
-/* ══════════════════════════════════════════
-   Comparison
-   ══════════════════════════════════════════ */
 
 .comp {
   padding: 40px 24px 10px;
@@ -791,9 +768,7 @@
   transform: translateX(3px);
 }
 
-/* ══════════════════════════════════════════
-   Final CTA
-   ══════════════════════════════════════════ */
+
 
 .final {
   position: relative;
@@ -855,9 +830,7 @@
   margin-top: 20px;
 }
 
-/* ══════════════════════════════════════════
-   Footer
-   ══════════════════════════════════════════ */
+
 
 .footer {
   padding: 64px 24px 32px;
@@ -1087,7 +1060,6 @@
   padding-left: 8px;
 }
 
-/* ── Individual scroll reveal ── */
 .itemHidden {
   opacity: 0;
   transform: translateY(50px) scale(0.96);
@@ -1109,9 +1081,6 @@
   50% { box-shadow: 0 0 50px rgba(122, 111, 246, 0.4), 0 0 100px rgba(122, 111, 246, 0.2); }
 }
 
-/* ══════════════════════════════════════════
-   Animations
-   ══════════════════════════════════════════ */
 
 @keyframes fadeUp {
   from {
@@ -1123,10 +1092,6 @@
     transform: translateY(0);
   }
 }
-
-/* ══════════════════════════════════════════
-   Responsive
-   ══════════════════════════════════════════ */
 
 @media (max-width: 1024px) {
   .featGrid {
@@ -1328,7 +1293,6 @@
   }
 }
 
-/* ── Scrollbar styling ── */
 @media (hover: hover) {
   ::-webkit-scrollbar {
     width: 8px;

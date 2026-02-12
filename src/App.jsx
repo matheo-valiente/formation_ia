@@ -27,7 +27,6 @@ function useReveal(threshold = 0.12) {
   return [ref, visible];
 }
 
-/* ── Individual scroll reveal wrapper ── */
 function RevealItem({ children, className = '', threshold = 0.15 }) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -53,7 +52,6 @@ function RevealItem({ children, className = '', threshold = 0.15 }) {
   );
 }
 
-/* ── Feature data ── */
 const features = [
   {
     icon: (
@@ -115,7 +113,6 @@ const features = [
   },
 ];
 
-/* ── Stats data ── */
 const stats = [
   { end: 90, suffix: '%', label: 'Du compte automatisé' },
   { end: 10, suffix: 'K', label: 'Abonnés en 30 jours' },
@@ -123,7 +120,6 @@ const stats = [
   { end: 24, suffix: '/7', label: 'Système autonome' },
 ];
 
-/* ── CountUp component ── */
 function CountUp({ end, suffix }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -162,7 +158,6 @@ function CountUp({ end, suffix }) {
   return <span ref={ref}>{count}{suffix}</span>;
 }
 
-/* ── Arrow icon ── */
 const Arrow = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <path d="M5 12h14" />
@@ -170,17 +165,13 @@ const Arrow = () => (
   </svg>
 );
 
-/* ── Instagram icon ── */
 const InstaIcon = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
     <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
   </svg>
 );
 
-/* ══════════════════════════════════════════
-   Main App Component
-   ══════════════════════════════════════════ */
-/* ── Legal content ── */
+
 const legalContent = {
   mentions: {
     title: 'Mentions légales',
@@ -283,7 +274,6 @@ export default function App() {
     <div className={s.page}>
       <div className={s.grain} aria-hidden="true" />
 
-      {/* ─── Navigation ─── */}
       <nav className={s.nav}>
         <div className={s.navInner}>
           <a href="#" className={s.logo}>
@@ -316,7 +306,6 @@ export default function App() {
         </div>
       </nav>
 
-      {/* ─── Mobile side panel ─── */}
       {menuOpen && (
         <div className={s.panelOverlay} onClick={() => setMenuOpen(false)}>
           <div className={s.panel} onClick={(e) => e.stopPropagation()}>
@@ -332,7 +321,6 @@ export default function App() {
         </div>
       )}
 
-      {/* ─── Hero ─── */}
       <section className={s.hero}>
         <div className={s.orb1} aria-hidden="true" />
         <div className={s.orb2} aria-hidden="true" />
@@ -375,7 +363,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─── Stats ─── */}
       <section className={s.stats}>
         <div className={s.statsGrid}>
           {stats.map((stat, i) => (
@@ -413,7 +400,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─── Comparison ─── */}
       <section id="comparaison" className={s.comp}>
         <div className={s.compInner}>
           <RevealItem className={s.sectionHead}>
@@ -449,10 +435,8 @@ export default function App() {
               </ul>
             </RevealItem>
 
-            {/* Divider */}
             <div className={s.compVs}>VS</div>
 
-            {/* With */}
             <RevealItem className={`${s.compCard} ${s.compNew}`}>
               <div className={s.compBadge}>Recommandé</div>
               <h3 className={s.compCardTitle}>Avec la méthode</h3>
@@ -495,14 +479,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─── Final CTA ─── */}
       <section
         ref={ctaRef}
         className={`${s.final} ${ctaVis ? s.reveal : ''}`}
       >
       </section>
 
-      {/* ─── Footer ─── */}
       <footer className={s.footer}>
         <div className={s.footerInner}>
           <div className={s.footerTop}>
@@ -559,7 +541,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* ─── Legal Modal ─── */}
       {legalPage && (
         <div className={s.modalOverlay} onClick={() => setLegalPage(null)}>
           <div className={s.modal} onClick={(e) => e.stopPropagation()}>
