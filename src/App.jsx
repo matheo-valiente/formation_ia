@@ -352,13 +352,13 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Accéder à la formation — 14,90€
+              Accéder à la formation
               <Arrow />
             </a>
           </div>
 
           <p className={s.trustLine}>
-            Accès immédiat · Paiement sécurisé par Stripe
+            Paiement sécurisé par Stripe
           </p>
         </div>
       </section>
@@ -491,7 +491,7 @@ export default function App() {
             <div className={s.footerBrand}>
               <a href="#" className={s.logo}>
                 <img src="/logo.png" alt="Logo" className={s.logoImg} />
-                Formation IA
+                Intelligence Artificielle Info
               </a>
               <p className={s.footerDesc}>
                 La méthode complète pour automatiser votre Instagram grâce à l'IA.
@@ -515,7 +515,7 @@ export default function App() {
 
           <div className={s.footerBottom}>
             <p className={s.footerCopy}>
-              © {new Date().getFullYear()} Formation IA. Tous droits réservés.
+              © {new Date().getFullYear()} Intelligence Artificielle Info. Tous droits réservés.
             </p>
             <div className={s.footerSocials}>
               <a href={INSTA} className={s.footerSocial} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
