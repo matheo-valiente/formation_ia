@@ -494,7 +494,7 @@ export default function App() {
                 Intelligence Artificielle Info
               </a>
               <p className={s.footerDesc}>
-                La méthode complète pour automatiser votre Instagram grâce à l'IA.
+                La méthode complète pour automatiser votree Instagram grâce à l'IA.
               </p>
             </div>
 
