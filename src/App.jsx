@@ -161,10 +161,10 @@ const testimonials = [
     text: "J'avais déjà essayé plusieurs formations Instagram mais celle-ci est différente. Les workflows sont vraiment automatisés, pas juste 'utilisez cet outil'. En 4h j'ai créé tout mon contenu du mois. Mes Reels font maintenant entre 5K et 20K vues régulièrement.",
   },
   {
-    name: 'Julien Petit',
-    role: '@julien_petit_ai',
-    avatar: '/avatars/julien.jpg',
-    logo: '/logos/julien-logo.png',
+    name: 'Frédéric Petit',
+    role: '@frederic_petit_ai',
+    avatar: '/avatars/frederic.jpg',
+    logo: '/logos/frederic-logo.png',
     text: "Beta testeur ici. Au début j'étais à 800 abonnés, maintenant j'en suis à 7500 en 6 semaines. Le plus fou c'est que je passe vraiment 4h par mois sur Instagram maintenant. Le reste tourne tout seul. La partie sur l'algorithme Instagram est gold.",
   },
 ];
@@ -454,7 +454,7 @@ export default function App() {
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
                   <img 
-                    src="./public/instagram-vues.jpg" 
+                    src="/public/instagram-vues.jpg" 
                     alt="Instagram - Vues mensuelles" 
                     className={s.credibilityImage}
                   />
