@@ -56,29 +56,38 @@ const features = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-    title: 'Croissance algorithmique',
-    desc: "Maîtrisez l'algorithme Instagram. Les mécaniques exactes qui propulsent vos Reels dans l'Explorer et attirent des milliers d'abonnés.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
       </svg>
     ),
-    title: 'Chaînes Faceless IA',
-    desc: 'Créez des chaînes entièrement produites par des agents IA. Zéro caméra, zéro montage manuel, 100% automatisé.',
+    title: 'Module 1 : Choisir votre modèle',
+    desc: "Nous verrons comment identifier le modèle de vidéos IA qui vous correspond et valider sa viabilité économique. Vous repartez avec un plan d'attaque précis — sans jamais montrer votre visage.",
   },
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="5 3 19 12 5 21 5 3" />
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
       </svg>
     ),
-    title: 'Workflow Reels automatisé',
-    desc: "Un système complet de production de Reels — du script au montage final, tout est orchestré par l'IA.",
+    title: 'Module 2 : Devenir l\'ami de l\'algorithme',
+    desc: "Nous verrons comment comprendre mécaniquement ce que recherche l'algorithme et configurer votre compte pour qu'il propulse naturellement vos Reels. Vous ne postez plus dans le vide.",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
+    title: 'Module 3 : Décoder l\'esprit humain',
+    desc: "Nous verrons comment identifier les patterns cachés des Reels à millions de vues et développer l'œil critique qui transforme vos créations en contenu viral.",
+  },
+  {
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+      </svg>
+    ),
+    title: 'Module 4 : Automatiser la création',
+    desc: "Nous verrons comment générer scripts viraux, descriptions et idées de contenu en quelques minutes, et créer votre identité visuelle professionnelle sans caméra ni micro.",
   },
   {
     icon: (
@@ -89,17 +98,8 @@ const features = [
         <line x1="3" y1="10" x2="21" y2="10" />
       </svg>
     ),
-    title: '30 jours en 4 heures',
-    desc: "Planifiez et produisez un mois entier de contenu pour tous vos réseaux en une seule après-midi.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
-    title: 'Automatisation totale',
-    desc: "90% des tâches de ce compte sont automatisées. Le système tourne en continu, même quand vous dormez.",
+    title: 'Module 5 : Produire 30 jours en 4 heures',
+    desc: "Nous verrons comment organiser votre production en blocs séquentiels pour créer un mois entier de contenu en une seule session. Vous êtes libre le reste du temps.",
   },
   {
     icon: (
@@ -108,8 +108,8 @@ const features = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     ),
-    title: 'Revenus récurrents',
-    desc: "Monétisez votre audience avec un système éprouvé pour générer des revenus récurrents sur Instagram.",
+    title: 'Module 6 : Transformer l\'audience en revenus',
+    desc: "Nous verrons comment monétiser votre audience et transformer votre compte en machine à générer des revenus récurrents. 10 000 abonnés sans business model ne servent à rien.",
   },
 ];
 
@@ -118,6 +118,55 @@ const stats = [
   { end: 10, suffix: 'K', label: 'Abonnés en 30 jours' },
   { end: 4, suffix: 'h', label: 'Pour 30 jours de contenu' },
   { end: 24, suffix: '/7', label: 'Système autonome' },
+];
+
+const objections = [
+  {
+    objection: "Mais toi t'es expert en IA, normal que ça marche…",
+    faux: "Cette méthode ne nécessite AUCUNE compétence technique.",
+    vrai: "Si tu sais utiliser Instagram, tu peux appliquer ce système.",
+  },
+  {
+    objection: "Ça marche que pour les gros comptes…",
+    faux: "La méthode fonctionne dès le début, pas seulement une fois que t'as 10K abonnés.",
+    vrai: "Les beta testeurs ont démarré de zéro ou avec peu d'audience. Même logique.",
+  },
+  {
+    objection: "L'IA va changer, ta formation sera obsolète dans 6 mois…",
+    faux: "Le système est pensé pour évoluer avec les outils.",
+    vrai: "Tu maîtrises les principes (algo, workflow, automatisation), pas juste un outil figé.",
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Marine Dubois',
+    role: '@marinedb_ia',
+    avatar: '/avatars/marine.jpg',
+    logo: '/logos/marine-logo.png',
+    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais après 3 semaines, j'ai passé de 200 à 3200 abonnés. Le système de production de contenu IA fonctionne vraiment. Je poste 2-3 fois par semaine maintenant et ça prend 30min max.",
+  },
+  {
+    name: 'Alexandre Chen',
+    role: '@alex_chen_ai',
+    avatar: '/avatars/alexandre.jpg',
+    logo: '/logos/alexandre-logo.png',
+    text: "Ce qui m'a convaincu c'est la partie sur les revenus récurrents. J'ai appliqué la méthode de monétisation et j'ai généré mes premiers 200€ en un mois. Pour 14,90€ c'est vraiment rentable. La formation est claire, pas de blabla inutile.",
+  },
+  {
+    name: 'Sophie Martin',
+    role: '@sophie_martin_ia',
+    avatar: '/avatars/sophie.jpg',
+    logo: '/logos/sophie-logo.png',
+    text: "J'avais déjà essayé plusieurs formations Instagram mais celle-ci est différente. Les workflows sont vraiment automatisés, pas juste 'utilisez cet outil'. En 4h j'ai créé tout mon contenu du mois. Mes Reels font maintenant entre 5K et 20K vues régulièrement.",
+  },
+  {
+    name: 'Julien Petit',
+    role: '@julien_petit_ai',
+    avatar: '/avatars/julien.jpg',
+    logo: '/logos/julien-logo.png',
+    text: "Beta testeur ici. Au début j'étais à 800 abonnés, maintenant j'en suis à 7500 en 6 semaines. Le plus fou c'est que je passe vraiment 4h par mois sur Instagram maintenant. Le reste tourne tout seul. La partie sur l'algorithme Instagram est gold.",
+  },
 ];
 
 function CountUp({ end, suffix }) {
@@ -276,13 +325,15 @@ export default function App() {
 
       <nav className={s.nav}>
         <div className={s.navInner}>
-          <a href="#" className={s.logo}>
+          <a href="#" className={s.logo} onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <img src="/logo.png" alt="Logo" className={s.logoImg} />
             intelligence_artificielle_info
           </a>
           <div className={s.navLinks}>
-            <a href="#features" className={s.navLink}>Méthode</a>
-            <a href="#comparaison" className={s.navLink}>Tarif</a>
+            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Preuve sociale</a>
+            <a href="#comparaison" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
+            <a href="#features" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
+            <a href="#objections" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
           </div>
           <div className={s.navRight}>
             <a
@@ -311,8 +362,10 @@ export default function App() {
           <div className={s.panel} onClick={(e) => e.stopPropagation()}>
             <button className={s.panelClose} onClick={() => setMenuOpen(false)}>✕</button>
             <nav className={s.panelNav}>
-              <a href="#features" className={s.panelLink} onClick={() => setMenuOpen(false)}>Méthode</a>
-              <a href="#comparaison" className={s.panelLink} onClick={() => setMenuOpen(false)}>Tarif</a>
+              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Preuve sociale</a>
+              <a href="#comparaison" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('comparaison'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Tarif</a>
+              <a href="#features" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('features'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Méthode</a>
+              <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
               <a href={STRIPE} className={s.panelCta} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
                 Accéder à la formation
               </a>
@@ -329,20 +382,16 @@ export default function App() {
         <div className={s.heroInner}>
           <div className={s.badge}>
             <span className={s.badgePulse} />
-            Voici comment j'ai automatisé 90% de ce compte
+            Créer une marque forte sans caméra ni micro
           </div>
 
           <h1 className={s.title}>
-            Automatisez votre{' '}
-            <span className={s.gradient}>Instagram.</span>
-            <br />
-            Explosez votre croissance.
+            De 0 à 10 000 abonnés en 30 jours{' '}
+            <span className={s.gradient}>grâce à l'IA</span>
           </h1>
 
           <p className={s.subtitle}>
-            Atteignez <strong>10 000 abonnés en 30 jours</strong>. Créez un mois
-            de contenu en 4 heures. Bâtissez un système qui travaille pour
-            vous même quand vous dormez.
+            Créez 30 jours de contenu en 4 heures et transformez vos Reels en revenus récurrents — sans montrer votre visage.
           </p>
 
           <div className={s.heroActions}>
@@ -376,26 +425,91 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─── Features ─── */}
-      <section id="features" className={s.features}>
-        <div className={s.featInner}>
+      {/* ─── Social Proof ─── */}
+      <section id="social-proof" className={s.socialProof}>
+        <div className={s.socialProofInner}>
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Ce que vous allez apprendre</span>
+            <span className={s.tag}>Preuve sociale</span>
             <h2 className={s.sectionTitle}>
-              Tout ce qu'il faut pour
+              Des résultats{' '}
+              <span className={s.gradient}>concrets</span>
               <br />
-              <span className={s.gradient}>dominer Instagram</span> avec l'IA
+              et vérifiables
             </h2>
           </RevealItem>
 
-          <div className={s.featGrid}>
-            {features.map((f, i) => (
-              <RevealItem key={i} className={s.featCard}>
-                <div className={s.featIcon}>{f.icon}</div>
-                <h3 className={s.featTitle}>{f.title}</h3>
-                <p className={s.featDesc}>{f.desc}</p>
-              </RevealItem>
-            ))}
+          {/* Partie 1 : Screenshots de crédibilité */}
+          <div className={s.credibilitySection}>
+            <RevealItem className={s.credibilityGrid}>
+              <div className={s.credibilityCard}>
+                <div className={s.credibilityImageWrapper}>
+                  <img 
+                    src="/tiktok-profil.jpg" 
+                    alt="Profil TikTok - Nombre d'abonnés" 
+                    className={s.credibilityImage}
+                  />
+                </div>
+                <p className={s.credibilityLabel}>Abonnés TikTok</p>
+              </div>
+              <div className={s.credibilityCard}>
+                <div className={s.credibilityImageWrapper}>
+                  <img 
+                    src="/instagram-vues.jpg" 
+                    alt="Instagram - Vues mensuelles" 
+                    className={s.credibilityImage}
+                  />
+                </div>
+                <p className={s.credibilityLabel}>Vues Instagram (1 mois)</p>
+              </div>
+            </RevealItem>
+          </div>
+
+          {/* Partie 2 : Témoignages */}
+          <div className={s.testimonialsSection}>
+            <RevealItem className={s.sectionHead}>
+              <h3 className={s.testimonialsTitle}>
+                Ce que disent les{' '}
+                <span className={s.gradient}>beta testeurs</span>
+              </h3>
+            </RevealItem>
+            <div className={s.testimonialsGrid}>
+              {testimonials.map((testimonial, i) => (
+                <RevealItem key={i} className={s.testimonialCard}>
+                  <div className={s.testimonialHeader}>
+                    <div className={s.testimonialAvatarWrapper}>
+                      <img 
+                        src={testimonial.avatar} 
+                        alt={testimonial.name}
+                        className={s.testimonialAvatar}
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className={s.testimonialAvatarFallback} style={{ display: 'none' }}>
+                        {testimonial.name.charAt(0)}
+                      </div>
+                      {testimonial.logo && (
+                        <img 
+                          src={testimonial.logo} 
+                          alt={`${testimonial.name} logo`}
+                          className={s.testimonialLogo}
+                          onError={(e) => { e.target.style.display = 'none'; }}
+                        />
+                      )}
+                    </div>
+                    <div className={s.testimonialInfo}>
+                      <div className={s.testimonialName}>{testimonial.name}</div>
+                      <div className={s.testimonialRole}>{testimonial.role}</div>
+                    </div>
+                  </div>
+                  <div className={s.testimonialStars}>
+                    {'★'.repeat(5)}
+                  </div>
+                  <p className={s.testimonialText}>"{testimonial.text}"</p>
+                </RevealItem>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -414,11 +528,11 @@ export default function App() {
               <ul className={s.compList}>
                 <li>
                   <span className={s.compX}>✕</span>
-                  Monteur vidéo : 1 500€/mois
+                  Coûts matériels : caméras, micros, logiciels de montage (500€+)
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
-                  40 heures de travail par mois
+                  20-25 heures de travail par mois
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
@@ -428,17 +542,12 @@ export default function App() {
                   <span className={s.compX}>✕</span>
                   Aucune automatisation
                 </li>
-                <li>
-                  <span className={s.compX}>✕</span>
-                  Dépendance aux prestataires
-                </li>
               </ul>
             </RevealItem>
 
             <div className={s.compVs}>VS</div>
 
             <RevealItem className={`${s.compCard} ${s.compNew}`}>
-              <div className={s.compBadge}>Recommandé</div>
               <h3 className={s.compCardTitle}>Avec la méthode</h3>
               <div className={s.compPrice}>
                 14,90€ <span>une seule fois</span>
@@ -479,17 +588,103 @@ export default function App() {
         </div>
       </section>
 
+      {/* ─── Features ─── */}
+      <section id="features" className={s.features}>
+        <div className={s.featInner}>
+          <RevealItem className={s.sectionHead}>
+            <span className={s.tag}>Le programme</span>
+            <h2 className={s.sectionTitle}>
+              Les différents modules{' '}
+              <span className={s.gradient}>de la formation</span>
+            </h2>
+          </RevealItem>
+
+          <div className={s.featGrid}>
+            {features.map((f, i) => (
+              <RevealItem key={i} className={s.featCard}>
+                <div className={s.featIcon}>{f.icon}</div>
+                <h3 className={s.featTitle}>{f.title}</h3>
+                <p className={s.featDesc}>{f.desc}</p>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Objections ─── */}
+      <section id="objections" className={s.objections}>
+        <div className={s.objectionsInner}>
+          <RevealItem className={s.sectionHead}>
+            <span className={s.tag}>Objections</span>
+            <h2 className={s.sectionTitle}>
+              On répond aux questions
+              <br />
+              <span className={s.gradient}>qui bloquent</span>
+            </h2>
+          </RevealItem>
+
+          <div className={s.objectionsList}>
+            {objections.map((item, i) => (
+              <RevealItem key={i} className={s.objectionCard}>
+                <p className={s.objectionQuote}>"{item.objection}"</p>
+                <div className={s.objectionResponse}>
+                  <span className={s.objectionFaux}>❌ FAUX.</span>{' '}
+                  <span className={s.objectionFauxText}>{item.faux}</span>
+                </div>
+                <div className={s.objectionVrai}>
+                  <span className={s.objectionCheck}>✅</span> {item.vrai}
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── CTA Final ─── */}
       <section
+        id="cta-final"
         ref={ctaRef}
         className={`${s.final} ${ctaVis ? s.reveal : ''}`}
       >
+        <div className={s.finalOrb} aria-hidden="true" />
+        <div className={s.finalInner}>
+          <h2 className={s.finalTitle}>Dans 30 jours, tu auras :</h2>
+
+          <ul className={s.finalList}>
+            {[
+              'Un système de production de contenu rodé (4h/mois au lieu de 40h)',
+              '10K abonnés (ou en bonne voie)',
+              '30 jours de contenu d\'avance (zéro stress)',
+              'Un compte qui grandit pendant que tu dors'
+            ].map((item, i) => (
+              <RevealItem key={i} className={s.finalListItem}>
+                <div className={s.finalCheckWrapper}>
+                  <span className={s.finalCheck}>✅</span>
+                </div>
+                <span className={s.finalText}>{item}</span>
+              </RevealItem>
+            ))}
+          </ul>
+
+          <div className={s.finalCtaWrap}>
+            <a
+              href={STRIPE}
+              className={s.finalCta}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Commencer maintenant — 14,90€
+              <Arrow />
+            </a>
+          </div>
+        </div>
       </section>
 
       <footer className={s.footer}>
         <div className={s.footerInner}>
           <div className={s.footerTop}>
             <div className={s.footerBrand}>
-              <a href="#" className={s.logo}>
+              <a href="#" className={s.logo} onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
                 <img src="/logo.png" alt="Logo" className={s.logoImg} />
                 Intelligence Artificielle Info
               </a>
@@ -499,9 +694,11 @@ export default function App() {
             </div>
 
             <div className={s.footerCol}>
-              <h4 className={s.footerColTitle}>Liens</h4>
-              <a href="#features" className={s.footerLink}>Méthode</a>
-              <a href="#comparaison" className={s.footerLink}>Tarif</a>
+              <h4 className={s.footerColTitle}>Navigation</h4>
+              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Preuve sociale</a>
+              <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
+              <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
+              <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
               <a href={STRIPE} className={s.footerLink} target="_blank" rel="noopener noreferrer">Accéder à la formation</a>
             </div>
 
