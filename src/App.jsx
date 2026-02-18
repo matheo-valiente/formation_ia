@@ -330,7 +330,7 @@ export default function App() {
             intelligence_artificielle_info
           </a>
           <div className={s.navLinks}>
-            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Preuve sociale</a>
+            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Ce qu'ils en pensent</a>
             <a href="#comparaison" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
             <a href="#features" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
             <a href="#objections" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
@@ -362,7 +362,7 @@ export default function App() {
           <div className={s.panel} onClick={(e) => e.stopPropagation()}>
             <button className={s.panelClose} onClick={() => setMenuOpen(false)}>✕</button>
             <nav className={s.panelNav}>
-              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Preuve sociale</a>
+              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Ce qu'ils en pensent</a>
               <a href="#comparaison" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('comparaison'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Tarif</a>
               <a href="#features" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('features'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Méthode</a>
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
@@ -429,7 +429,7 @@ export default function App() {
       <section id="social-proof" className={s.socialProof}>
         <div className={s.socialProofInner}>
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Preuve sociale</span>
+            <span className={s.tag}>Ce qu'ils en pensent</span>
             <h2 className={s.sectionTitle}>
               Des résultats{' '}
               <span className={s.gradient}>concrets</span>
@@ -689,13 +689,13 @@ export default function App() {
                 Intelligence Artificielle Info
               </a>
               <p className={s.footerDesc}>
-                La méthode complète pour automatiser votree Instagram grâce à l'IA.
+                La méthode complète pour passer de 0 à 10 000 abonnés en 30 jours grâce à l'IA.
               </p>
             </div>
 
             <div className={s.footerCol}>
               <h4 className={s.footerColTitle}>Navigation</h4>
-              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Preuve sociale</a>
+              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Ce qu'ils en pensent</a>
               <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
