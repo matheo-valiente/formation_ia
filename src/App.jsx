@@ -444,7 +444,7 @@ export default function App() {
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
                   <img 
-                    src="/tiktok-profil.jpg" 
+                    src="./public/tiktok-profil.jpg" 
                     alt="Profil TikTok - Nombre d'abonnés" 
                     className={s.credibilityImage}
                   />
@@ -454,7 +454,7 @@ export default function App() {
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
                   <img 
-                    src="/instagram-vues.jpg" 
+                    src="./public/instagram-vues.jpg" 
                     alt="Instagram - Vues mensuelles" 
                     className={s.credibilityImage}
                   />
