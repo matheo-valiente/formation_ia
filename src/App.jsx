@@ -149,11 +149,11 @@ const testimonials = [
     text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. En seulement 6 jours, j'ai atteint 3200 abonnés avec des simples vidéos d'un perso Fortnite ultra réaliste. Je poste 2-3 fois par jour maintenant et ça prend 30min max.",
   },
   {
-    name: 'Alexandre Chen',
-    role: '@alex_chen_ai',
+    name: 'Créateur de vidéos explicatives en musique',
+    role: '@komangdire',
     avatar: '/avatars/alexandre.jpg',
     logo: '/logos/alexandre-logo.png',
-    text: "Ce qui m'a convaincu c'est la partie sur les revenus récurrents. J'ai appliqué la méthode de monétisation et j'ai généré mes premiers 200€ en un mois. Pour 14,90€ c'est vraiment rentable. La formation est claire, pas de blabla inutile.",
+    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, on peut transmettre des concepts en musique et rendre l’apprentissage beaucoup plus engageant. Je suis passé de 200 à 15 000 abonnés en 3 semaines. Pour 14,90 €, c’est largement rentable. La formation est claire, directe, sans blabla inutile.",
   },
   {
     name: 'Sophie Martin',
