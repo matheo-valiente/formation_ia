@@ -131,7 +131,7 @@ const objections = [
   {
     objection: "Ça marche que pour les gros comptes…",
     faux: "La méthode fonctionne dès le début, pas seulement une fois que t'as 10K abonnés.",
-    vrai: "Les clients ont démarré de zéro ou avec peu d'audience. Même logique.",
+    vrai: "Les clients ont démarré de zéro ou avec peu d'audience.",
   },
   {
     objection: "L'IA va changer, ta formation sera obsolète dans 6 mois…",
@@ -348,7 +348,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Accéder à la formation
+              Accéder à la méthode
             </a>
             <button
               className={s.burger}
@@ -374,7 +374,7 @@ export default function App() {
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
               <a href="#about" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('about'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>À propos</a>
               <a href={STRIPE} className={s.panelCta} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
-                Accéder à la formation
+                Accéder à la méthode
               </a>
             </nav>
           </div>
@@ -408,7 +408,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Accéder à la formation
+              Accéder à la méthode
               <Arrow />
             </a>
           </div>
@@ -453,7 +453,7 @@ export default function App() {
                     className={s.credibilityImage}
                   />
                 </div>
-                <p className={s.credibilityLabel}>Abonnés TikTok</p>
+                <p className={s.credibilityLabel}>Plus de 50 000 abonnés TikTok</p>
               </div>
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
@@ -463,17 +463,17 @@ export default function App() {
                     className={s.credibilityImage}
                   />
                 </div>
-                <p className={s.credibilityLabel}>Vues Instagram (1 mois)</p>
+                <p className={s.credibilityLabel}>Plus de 2,7M de vues Instagram en 1 mois</p>
               </div>
             </RevealItem>
           </div>
 
-          {/* Partie 2 : Ce que disent nos clients (cible du lien "Témoignages") */}
+          {/* Partie 2 : Ce que disent les clients (cible du lien "Témoignages") */}
           <div id="temoignages" className={s.temoignagesAnchor}>
             <RevealItem className={s.sectionHead}>
-              <span className={s.tag}>Avis</span>
+              <span className={s.tag}>Ils en parlent mieux que moi</span>
               <h2 className={s.sectionTitle}>
-                Ce que disent nos{' '}
+                Ce que disent les{' '}
                 <span className={s.gradient}>clients</span>
               </h2>
             </RevealItem>
@@ -613,7 +613,7 @@ export default function App() {
             <span className={s.tag}>Le programme</span>
             <h2 className={s.sectionTitle}>
               Les différents modules{' '}
-              <span className={s.gradient}>de la formation</span>
+              <span className={s.gradient}>de la méthode</span>
             </h2>
           </RevealItem>
 
@@ -691,7 +691,7 @@ export default function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Commencer maintenant — 14,90€
+              Découvrir la méthode
               <Arrow />
             </a>
           </div>
@@ -710,7 +710,7 @@ export default function App() {
           </RevealItem>
           <div className={s.aboutContent}>
             <p className={s.aboutText}>
-              Tu as une question sur la formation ou besoin d'aide ? N'hésite pas à me contacter directement.
+              Tu as une question sur la formation ou besoin d'aide ? N'hésite pas à me contacter directement en appuyant sur le bouton ci-dessous.
             </p>
             <a href="mailto:contact@intelligence-artificielle-info.com" className={s.aboutEmail}>
               contact@intelligence-artificielle-info.com
@@ -738,7 +738,7 @@ export default function App() {
               <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
-              <a href={STRIPE} className={s.footerLink} target="_blank" rel="noopener noreferrer">Accéder à la formation</a>
+              <a href={STRIPE} className={s.footerLink} target="_blank" rel="noopener noreferrer">Accéder à la méthode</a>
             </div>
 
             <div className={s.footerCol}>
