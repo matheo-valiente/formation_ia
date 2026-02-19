@@ -61,8 +61,8 @@ const features = [
         <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
       </svg>
     ),
-    title: 'Module 1 : Choisir votre modèle',
-    desc: "Nous verrons comment identifier le modèle de vidéos IA qui vous correspond et valider sa viabilité économique. Vous repartez avec un plan d'attaque précis — sans jamais montrer votre visage.",
+    title: 'Module 1 : Choisir ton modèle',
+    desc: "Nous verrons comment identifier le modèle de vidéos IA qui te correspond et valider sa viabilité économique. Tu repartiras avec un plan d'attaque précis — sans jamais montrer ton visage.",
   },
   {
     icon: (
@@ -71,7 +71,7 @@ const features = [
       </svg>
     ),
     title: 'Module 2 : Devenir l\'ami de l\'algorithme',
-    desc: "Nous verrons comment comprendre mécaniquement ce que recherche l'algorithme et configurer votre compte pour qu'il propulse naturellement vos Reels. Vous ne postez plus dans le vide.",
+    desc: "Nous verrons comment comprendre mécaniquement ce que recherche l'algorithme et configurer ton compte pour qu'il propulse naturellement tes Reels. Tu ne posteras plus dans le vide.",
   },
   {
     icon: (
@@ -80,7 +80,7 @@ const features = [
       </svg>
     ),
     title: 'Module 3 : Décoder l\'esprit humain',
-    desc: "Nous verrons comment identifier les patterns cachés des Reels à millions de vues et développer l'œil critique qui transforme vos créations en contenu viral.",
+    desc: "Nous verrons comment identifier les patterns cachés des Reels à millions de vues et développer l'œil critique qui transforme tes créations en contenu viral.",
   },
   {
     icon: (
@@ -89,7 +89,7 @@ const features = [
       </svg>
     ),
     title: 'Module 4 : Automatiser la création',
-    desc: "Nous verrons comment générer scripts viraux, descriptions et idées de contenu en quelques minutes, et créer votre identité visuelle professionnelle sans caméra ni micro.",
+    desc: "Nous verrons comment générer scripts viraux, descriptions et idées de contenu en quelques minutes, et créer ton identité visuelle professionnelle sans caméra ni micro.",
   },
   {
     icon: (
@@ -101,7 +101,7 @@ const features = [
       </svg>
     ),
     title: 'Module 5 : Produire 30 jours en 4 heures',
-    desc: "Nous verrons comment organiser votre production en blocs séquentiels pour créer un mois entier de contenu en une seule session. Vous êtes libre le reste du temps.",
+    desc: "Nous verrons comment organiser ta production en blocs séquentiels pour créer un mois entier de contenu en une seule session. Tu seras libre le reste du temps.",
   },
   {
     icon: (
@@ -110,8 +110,8 @@ const features = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     ),
-    title: 'Module 6 : Transformer l\'audience en revenus',
-    desc: "Nous verrons comment monétiser votre audience et transformer votre compte en machine à générer des revenus récurrents. 10 000 abonnés sans business model ne servent à rien.",
+    title: 'Module 6 : Bonus — Les meilleurs outils actuels',
+    desc: "Nous verrons comment rester à jour avec les meilleurs outils IA du moment grâce à un guide mis à jour chaque semaine. Tu ne seras jamais obsolète face à l'évolution rapide du marché.",
   },
 ];
 
@@ -131,7 +131,7 @@ const objections = [
   {
     objection: "Ça marche que pour les gros comptes…",
     faux: "La méthode fonctionne dès le début, pas seulement une fois que t'as 10K abonnés.",
-    vrai: "Les beta testeurs ont démarré de zéro ou avec peu d'audience. Même logique.",
+    vrai: "Les clients ont démarré de zéro ou avec peu d'audience. Même logique.",
   },
   {
     objection: "L'IA va changer, ta formation sera obsolète dans 6 mois…",
@@ -167,7 +167,7 @@ const testimonials = [
     role: '@frederic_petit_ai',
     avatar: '/avatars/frederic.jpg',
     logo: '/logos/frederic-logo.png',
-    text: "Beta testeur ici. Au début j'étais à 800 abonnés, maintenant j'en suis à 7500 en 6 semaines. Le plus fou c'est que je passe vraiment 4h par mois sur Instagram maintenant. Le reste tourne tout seul. La partie sur l'algorithme Instagram est gold.",
+    text: "Client de la formation ici. Au début j'étais à 800 abonnés, maintenant j'en suis à 7500 en 6 semaines. Le plus fou c'est que je passe vraiment 4h par mois sur Instagram maintenant. Le reste tourne tout seul. La partie sur l'algorithme Instagram est gold.",
   },
 ];
 
@@ -320,6 +320,29 @@ export default function App() {
   const [ctaRef, ctaVis] = useReveal();
   const [legalPage, setLegalPage] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  
+  // Compteur d'offre limitée
+  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 47, seconds: 32 });
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft(prev => {
+        let { hours, minutes, seconds } = prev;
+        if (seconds > 0) {
+          seconds--;
+        } else if (minutes > 0) {
+          minutes--;
+          seconds = 59;
+        } else if (hours > 0) {
+          hours--;
+          minutes = 59;
+          seconds = 59;
+        }
+        return { hours, minutes, seconds };
+      });
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className={s.page}>
@@ -332,10 +355,11 @@ export default function App() {
             intelligence_artificielle_info
           </a>
           <div className={s.navLinks}>
-            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Ce qu'ils en pensent</a>
+            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
             <a href="#comparaison" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
             <a href="#features" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
             <a href="#objections" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
+            <a href="#about" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('about'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>À propos</a>
           </div>
           <div className={s.navRight}>
             <a
@@ -364,10 +388,11 @@ export default function App() {
           <div className={s.panel} onClick={(e) => e.stopPropagation()}>
             <button className={s.panelClose} onClick={() => setMenuOpen(false)}>✕</button>
             <nav className={s.panelNav}>
-              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Ce qu'ils en pensent</a>
+              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Témoignages</a>
               <a href="#comparaison" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('comparaison'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Tarif</a>
               <a href="#features" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('features'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Méthode</a>
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
+              <a href="#about" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('about'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>À propos</a>
               <a href={STRIPE} className={s.panelCta} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
                 Accéder à la formation
               </a>
@@ -393,7 +418,7 @@ export default function App() {
           </h1>
 
           <p className={s.subtitle}>
-            Créez 30 jours de contenu en 4 heures et transformez vos Reels en revenus récurrents — sans montrer votre visage.
+            Crée 30 jours de contenu en 4 heures et transforme tes Reels en revenus récurrents — sans montrer ton visage.
           </p>
 
           <div className={s.heroActions}>
@@ -431,22 +456,20 @@ export default function App() {
       <section id="social-proof" className={s.socialProof}>
         <div className={s.socialProofInner}>
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Ce qu'ils en pensent</span>
+            <span className={s.tag}>Témoignages</span>
             <h2 className={s.sectionTitle}>
-              Des résultats{' '}
-              <span className={s.gradient}>concrets</span>
-              <br />
-              et vérifiables
+              Ce que disent les{' '}
+              <span className={s.gradient}>clients</span>
             </h2>
           </RevealItem>
 
-          {/* Partie 1 : Screenshots de crédibilité */}
+          {/* Screenshots de crédibilité */}
           <div className={s.credibilitySection}>
             <RevealItem className={s.credibilityGrid}>
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
                   <img 
-                    src="/public/tiktok-profil.jpg" 
+                    src="/tiktok-profil.jpg" 
                     alt="Profil TikTok - Nombre d'abonnés" 
                     className={s.credibilityImage}
                   />
@@ -456,7 +479,7 @@ export default function App() {
               <div className={s.credibilityCard}>
                 <div className={s.credibilityImageWrapper}>
                   <img 
-                    src="/public/instagram-vues.jpg" 
+                    src="/instagram-vues.jpg" 
                     alt="Instagram - Vues mensuelles" 
                     className={s.credibilityImage}
                   />
@@ -466,14 +489,8 @@ export default function App() {
             </RevealItem>
           </div>
 
-          {/* Partie 2 : Témoignages */}
+          {/* Témoignages */}
           <div className={s.testimonialsSection}>
-            <RevealItem className={s.sectionHead}>
-              <h3 className={s.testimonialsTitle}>
-                Ce que disent les{' '}
-                <span className={s.gradient}>beta testeurs</span>
-              </h3>
-            </RevealItem>
             <div className={s.testimonialsGrid}>
               {testimonials.map((testimonial, i) => (
                 <RevealItem key={i} className={s.testimonialCard}>
@@ -553,6 +570,26 @@ export default function App() {
               <h3 className={s.compCardTitle}>Avec la méthode</h3>
               <div className={s.compPrice}>
                 14,90€ <span>une seule fois</span>
+              </div>
+              <div className={s.offerTimer}>
+                <div className={s.offerTimerLabel}>⏰ Offre limitée — se termine dans :</div>
+                <div className={s.offerTimerCountdown}>
+                  <div className={s.timerUnit}>
+                    <span className={s.timerValue}>{String(timeLeft.hours).padStart(2, '0')}</span>
+                    <span className={s.timerLabel}>h</span>
+                  </div>
+                  <span className={s.timerSeparator}>:</span>
+                  <div className={s.timerUnit}>
+                    <span className={s.timerValue}>{String(timeLeft.minutes).padStart(2, '0')}</span>
+                    <span className={s.timerLabel}>m</span>
+                  </div>
+                  <span className={s.timerSeparator}>:</span>
+                  <div className={s.timerUnit}>
+                    <span className={s.timerValue}>{String(timeLeft.seconds).padStart(2, '0')}</span>
+                    <span className={s.timerLabel}>s</span>
+                  </div>
+                </div>
+                <div className={s.offerTimerNote}>Après ce délai, le prix repassera à 197€</div>
               </div>
               <ul className={s.compList}>
                 <li>
@@ -682,6 +719,27 @@ export default function App() {
         </div>
       </section>
 
+      {/* ─── À propos ─── */}
+      <section id="about" className={s.about}>
+        <div className={s.aboutInner}>
+          <RevealItem className={s.sectionHead}>
+            <span className={s.tag}>À propos</span>
+            <h2 className={s.sectionTitle}>
+              Une question ?{' '}
+              <span className={s.gradient}>Contacte-moi</span>
+            </h2>
+          </RevealItem>
+          <div className={s.aboutContent}>
+            <p className={s.aboutText}>
+              Tu as une question sur la formation ou besoin d'aide ? N'hésite pas à me contacter directement.
+            </p>
+            <a href="mailto:contact@intelligence-artificielle-info.com" className={s.aboutEmail}>
+              contact@intelligence-artificielle-info.com
+            </a>
+          </div>
+        </div>
+      </section>
+
       <footer className={s.footer}>
         <div className={s.footerInner}>
           <div className={s.footerTop}>
@@ -697,7 +755,7 @@ export default function App() {
 
             <div className={s.footerCol}>
               <h4 className={s.footerColTitle}>Navigation</h4>
-              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Ce qu'ils en pensent</a>
+              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
               <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
