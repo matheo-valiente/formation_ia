@@ -452,18 +452,17 @@ export default function App() {
         </div>
       </section>
 
-      {/* ─── Social Proof ─── */}
+      {/* ─── Social Proof (Résultats + Témoignages) ─── */}
       <section id="social-proof" className={s.socialProof}>
         <div className={s.socialProofInner}>
+          {/* Partie 1 : Résultats */}
           <RevealItem className={s.sectionHead}>
             <span className={s.tag}>Témoignages</span>
             <h2 className={s.sectionTitle}>
-              Ce que disent les{' '}
-              <span className={s.gradient}>clients</span>
+              Nos <span className={s.gradient}>résultats</span>
             </h2>
           </RevealItem>
 
-          {/* Screenshots de crédibilité */}
           <div className={s.credibilitySection}>
             <RevealItem className={s.credibilityGrid}>
               <div className={s.credibilityCard}>
@@ -489,7 +488,15 @@ export default function App() {
             </RevealItem>
           </div>
 
-          {/* Témoignages */}
+          {/* Partie 2 : Ce que disent nos clients */}
+          <RevealItem className={s.sectionHead}>
+            <span className={s.tag}>Avis</span>
+            <h2 className={s.sectionTitle}>
+              Ce que disent nos{' '}
+              <span className={s.gradient}>clients</span>
+            </h2>
+          </RevealItem>
+
           <div className={s.testimonialsSection}>
             <div className={s.testimonialsGrid}>
               {testimonials.map((testimonial, i) => (
@@ -726,7 +733,7 @@ export default function App() {
             <span className={s.tag}>À propos</span>
             <h2 className={s.sectionTitle}>
               Une question ?{' '}
-              <span className={s.gradient}>Contacte-moi</span>
+              <span className={s.gradient}>Je suis là</span>
             </h2>
           </RevealItem>
           <div className={s.aboutContent}>

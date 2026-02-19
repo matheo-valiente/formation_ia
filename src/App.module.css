@@ -80,13 +80,13 @@
 
 .logo {
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--text);
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   letter-spacing: -0.02em;
   transition: all 0.3s var(--ease);
   padding: 8px;
@@ -100,8 +100,8 @@
 }
 
 .logoImg {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -117,19 +117,20 @@
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 18px;
 }
 
 .navLink {
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 8px 16px;
+  padding: 6px 10px;
   border-radius: 8px;
   position: relative;
   transition: all 0.3s var(--ease);
+  white-space: nowrap;
 }
 
 .navLink::before {
@@ -578,6 +579,10 @@
   margin-bottom: 64px;
 }
 
+.about .sectionHead {
+  margin-bottom: 24px;
+}
+
 .tag {
   display: inline-block;
   padding: 8px 18px;
@@ -811,9 +816,9 @@
   margin: 0;
 }
 
-/* Partie 2 : Témoignages */
+/* Partie 2 : Témoignages (Ce que disent nos clients) */
 .testimonialsSection {
-  margin-top: 80px;
+  margin-top: 48px;
 }
 
 .testimonialsTitle {
@@ -1439,7 +1444,7 @@
 }
 
 .aboutContent {
-  margin-top: 32px;
+  margin-top: 12px;
 }
 
 .aboutText {
@@ -2056,7 +2061,7 @@
   }
 
   .testimonialsTitle {
-    font-size: 22px;
+    font-size: 28px;
     margin-bottom: 32px;
   }
 
@@ -2106,11 +2111,11 @@
   }
 
   .sectionTitle {
-    font-size: 26px;
+    font-size: 34px;
   }
 
   .finalTitle {
-    font-size: 30px;
+    font-size: 38px;
   }
 
   .compPrice {
