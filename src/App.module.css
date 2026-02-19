@@ -670,7 +670,7 @@
    ══════════════════════════════════════════ */
 
 .objections {
-  padding: 40px 24px 60px;
+  padding: 40px 24px 32px;
   scroll-margin-top: 100px;
 }
 
@@ -814,6 +814,11 @@
   color: var(--text-secondary);
   text-align: center;
   margin: 0;
+}
+
+/* Ancre pour le lien "Témoignages" du header (section Avis) */
+.temoignagesAnchor {
+  scroll-margin-top: 100px;
 }
 
 /* Partie 2 : Témoignages (Ce que disent nos clients) */
@@ -1094,6 +1099,44 @@
   font-style: italic;
 }
 
+.offerSalesCount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.salesCurrent {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--red-400);
+  line-height: 1;
+}
+
+.salesSeparator {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.salesTotal {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.salesLabel {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-left: 2px;
+}
+
 @media (max-width: 768px) {
   .offerTimer {
     padding: 16px;
@@ -1111,6 +1154,14 @@
 
   .offerTimerLabel {
     font-size: 12px;
+  }
+
+  .salesCurrent {
+    font-size: 28px;
+  }
+
+  .salesTotal {
+    font-size: 24px;
   }
 }
 
@@ -1206,7 +1257,7 @@
 
 .final {
   position: relative;
-  padding: 100px 24px;
+  padding: 48px 24px 48px;
   overflow: hidden;
   scroll-margin-top: 100px;
 }
@@ -1433,7 +1484,7 @@
    ══════════════════════════════════════════ */
 
 .about {
-  padding: 100px 24px;
+  padding: 56px 24px 100px;
   scroll-margin-top: 100px;
 }
 
@@ -2034,6 +2085,14 @@
     padding: 20px 16px 50px;
   }
 
+  .objections {
+    padding-bottom: 24px;
+  }
+
+  .about {
+    padding-top: 32px;
+  }
+
   .aboutEmail {
     font-size: 16px;
     padding: 14px 28px;
@@ -2066,7 +2125,7 @@
   }
 
   .final {
-    padding: 80px 16px;
+    padding: 40px 16px 40px;
   }
 
   .finalListItem {

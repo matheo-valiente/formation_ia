@@ -222,7 +222,6 @@ const InstaIcon = () => (
   </svg>
 );
 
-
 const legalContent = {
   mentions: {
     title: 'Mentions légales',
@@ -321,28 +320,9 @@ export default function App() {
   const [legalPage, setLegalPage] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   
-  // Compteur d'offre limitée
-  const [timeLeft, setTimeLeft] = useState({ hours: 23, minutes: 47, seconds: 32 });
-  
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimeLeft(prev => {
-        let { hours, minutes, seconds } = prev;
-        if (seconds > 0) {
-          seconds--;
-        } else if (minutes > 0) {
-          minutes--;
-          seconds = 59;
-        } else if (hours > 0) {
-          hours--;
-          minutes = 59;
-          seconds = 59;
-        }
-        return { hours, minutes, seconds };
-      });
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  // Compteur de ventes pour offre limitée (après 100 ventes → 197€)
+  const salesLimit = 100;
+  const [salesCount] = useState(73); // nombre de ventes actuelles (ex. 73/100)
 
   return (
     <div className={s.page}>
@@ -355,7 +335,7 @@ export default function App() {
             intelligence_artificielle_info
           </a>
           <div className={s.navLinks}>
-            <a href="#social-proof" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
+            <a href="#temoignages" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('temoignages'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
             <a href="#comparaison" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
             <a href="#features" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
             <a href="#objections" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
@@ -388,7 +368,7 @@ export default function App() {
           <div className={s.panel} onClick={(e) => e.stopPropagation()}>
             <button className={s.panelClose} onClick={() => setMenuOpen(false)}>✕</button>
             <nav className={s.panelNav}>
-              <a href="#social-proof" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('social-proof'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Témoignages</a>
+              <a href="#temoignages" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('temoignages'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Témoignages</a>
               <a href="#comparaison" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('comparaison'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Tarif</a>
               <a href="#features" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('features'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Méthode</a>
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
@@ -455,11 +435,11 @@ export default function App() {
       {/* ─── Social Proof (Résultats + Témoignages) ─── */}
       <section id="social-proof" className={s.socialProof}>
         <div className={s.socialProofInner}>
-          {/* Partie 1 : Résultats */}
+          {/* Partie 1 : Résultats / Qui suis-je */}
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Témoignages</span>
+            <span className={s.tag}>Mes réseaux</span>
             <h2 className={s.sectionTitle}>
-              Nos <span className={s.gradient}>résultats</span>
+              Qui <span className={s.gradient}>suis-je ?</span>
             </h2>
           </RevealItem>
 
@@ -488,14 +468,16 @@ export default function App() {
             </RevealItem>
           </div>
 
-          {/* Partie 2 : Ce que disent nos clients */}
-          <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Avis</span>
-            <h2 className={s.sectionTitle}>
-              Ce que disent nos{' '}
-              <span className={s.gradient}>clients</span>
-            </h2>
-          </RevealItem>
+          {/* Partie 2 : Ce que disent nos clients (cible du lien "Témoignages") */}
+          <div id="temoignages" className={s.temoignagesAnchor}>
+            <RevealItem className={s.sectionHead}>
+              <span className={s.tag}>Avis</span>
+              <h2 className={s.sectionTitle}>
+                Ce que disent nos{' '}
+                <span className={s.gradient}>clients</span>
+              </h2>
+            </RevealItem>
+          </div>
 
           <div className={s.testimonialsSection}>
             <div className={s.testimonialsGrid}>
@@ -579,24 +561,14 @@ export default function App() {
                 14,90€ <span>une seule fois</span>
               </div>
               <div className={s.offerTimer}>
-                <div className={s.offerTimerLabel}>⏰ Offre limitée — se termine dans :</div>
-                <div className={s.offerTimerCountdown}>
-                  <div className={s.timerUnit}>
-                    <span className={s.timerValue}>{String(timeLeft.hours).padStart(2, '0')}</span>
-                    <span className={s.timerLabel}>h</span>
-                  </div>
-                  <span className={s.timerSeparator}>:</span>
-                  <div className={s.timerUnit}>
-                    <span className={s.timerValue}>{String(timeLeft.minutes).padStart(2, '0')}</span>
-                    <span className={s.timerLabel}>m</span>
-                  </div>
-                  <span className={s.timerSeparator}>:</span>
-                  <div className={s.timerUnit}>
-                    <span className={s.timerValue}>{String(timeLeft.seconds).padStart(2, '0')}</span>
-                    <span className={s.timerLabel}>s</span>
-                  </div>
+                <div className={s.offerTimerLabel}>🔥 Offre limitée — places à 14,90€</div>
+                <div className={s.offerSalesCount}>
+                  <span className={s.salesCurrent}>{salesCount}</span>
+                  <span className={s.salesSeparator}>/</span>
+                  <span className={s.salesTotal}>{salesLimit}</span>
+                  <span className={s.salesLabel}> ventes</span>
                 </div>
-                <div className={s.offerTimerNote}>Après ce délai, le prix repassera à 197€</div>
+                <div className={s.offerTimerNote}>Après les 100 premières ventes, le prix passera à 197€</div>
               </div>
               <ul className={s.compList}>
                 <li>
@@ -762,7 +734,7 @@ export default function App() {
 
             <div className={s.footerCol}>
               <h4 className={s.footerColTitle}>Navigation</h4>
-              <a href="#social-proof" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('social-proof'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
+              <a href="#temoignages" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('temoignages'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
               <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
