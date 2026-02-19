@@ -463,7 +463,7 @@ export default function App() {
                     className={s.credibilityImage}
                   />
                 </div>
-                <p className={s.credibilityLabel}>Plus de 2,7M de vues Instagram en 1 mois</p>
+                <p className={s.credibilityLabel}>Plus de 2,7M de vues Instagram générées, en seulement 30 jours</p>
               </div>
             </RevealItem>
           </div>
@@ -561,7 +561,7 @@ export default function App() {
                 14,90€ <span>une seule fois</span>
               </div>
               <div className={s.offerTimer}>
-                <div className={s.offerTimerLabel}>🔥 Offre limitée — places à 14,90€</div>
+                <div className={s.offerTimerLabel}>Offre limitée</div>
                 <div className={s.offerSalesCount}>
                   <span className={s.salesCurrent}>{salesCount}</span>
                   <span className={s.salesSeparator}>/</span>
