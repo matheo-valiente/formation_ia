@@ -142,11 +142,11 @@ const objections = [
 
 const testimonials = [
   {
-    name: 'Marine Dubois',
-    role: '@marinedb_ia',
+    name: 'Créateur vidéos Fortnite',
+    role: '@jonesy134643',
     avatar: '/avatars/marine.jpg',
     logo: '/logos/marine-logo.png',
-    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais après 3 semaines, j'ai passé de 200 à 3200 abonnés. Le système de production de contenu IA fonctionne vraiment. Je poste 2-3 fois par semaine maintenant et ça prend 30min max.",
+    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. En seulement 6 jours, j'ai atteint 3200 abonnés avec des simples vidéos d'un perso Fortnite ultra réaliste. Je poste 2-3 fois par jour maintenant et ça prend 30min max.",
   },
   {
     name: 'Alexandre Chen',
