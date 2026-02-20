@@ -111,7 +111,7 @@ const features = [
       </svg>
     ),
     title: 'Module 6 : Monétiser ton audience (même petite)',
-    desc: "Nous verrons comment mettre en place une monétisation simple et efficace, même avec peu d’abonnés : offres, positionnement et étapes concrètes pour transformer ton audience en revenus.",
+    desc: "Nous verrons comment mettre en place une monétisation simple et efficace, même avec 10 000 abonnés : offres, positionnement et étapes concrètes pour transformer ton audience en revenus.",
   },
 ];
 
@@ -559,15 +559,15 @@ export default function App() {
               <ul className={s.compList}>
                 <li>
                   <span className={s.compX}>✕</span>
-                  Coûts matériels : caméras, micros, logiciels de montage (investissement important)
+                  Coûts matériels : caméras, micros, logiciels de montage (200€+)
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
-                  20-25 heures de travail par mois
+                  Plus de 10h de travail par mois
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
-                  Résultats incertains
+                  Charge mentale élevée
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
@@ -595,11 +595,11 @@ export default function App() {
                 </li>
                 <li>
                   <span className={s.compCheck}>✓</span>
-                  Système autonome 24/7
+                  Processus simple et structuré
                 </li>
                 <li>
                   <span className={s.compCheck}>✓</span>
-                  Accès à vie à la formation
+                  Revenus plus stables et prévisibles
                 </li>
               </ul>
               <a
