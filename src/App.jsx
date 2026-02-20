@@ -155,19 +155,26 @@ const testimonials = [
     logo: '/logos/alexandre-logo.png',
     text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, on peut transmettre des concepts en musique et rendre l’apprentissage beaucoup plus engageant. Je suis passé de 200 à 15 000 abonnés en 3 semaines. La formation est claire, directe, sans blabla inutile.",
   },
+];
+
+const fromZeroExamples = [
   {
-    name: 'Sophie Martin',
-    role: '@sophie_martin_ia',
-    avatar: '/avatars/sophie.jpg',
-    logo: '/logos/sophie-logo.png',
-    text: "J'avais déjà essayé plusieurs formations Instagram mais celle-ci est différente. Les workflows sont vraiment automatisés, pas juste 'utilisez cet outil'. En 4h j'ai créé tout mon contenu du mois. Mes Reels font maintenant entre 5K et 20K vues régulièrement.",
+    name: 'Eric',
+    subtitle: 'De 0 à 100k abonnés en quelques semaines avec des vidéos IA horrifiques.',
+    thumb1: '/from-zero/eric-1.jpg',
+    thumb2: '/from-zero/eric-2.jpg',
   },
   {
-    name: 'Frédéric Petit',
-    role: '@frederic_petit_ai',
-    avatar: '/avatars/frederic.jpg',
-    logo: '/logos/frederic-logo.png',
-    text: "Client de la formation ici. Au début j'étais à 800 abonnés, maintenant j'en suis à 7500 en 6 semaines. Le plus fou c'est que je passe vraiment 4h par mois sur Instagram maintenant. Le reste tourne tout seul. La partie sur l'algorithme Instagram est gold.",
+    name: 'Léa',
+    subtitle: 'Elle transforme des anecdotes du quotidien en mini‑histoires animées par l’IA.',
+    thumb1: '/from-zero/lea-1.jpg',
+    thumb2: '/from-zero/lea-2.jpg',
+  },
+  {
+    name: 'Thomas',
+    subtitle: 'Des explications business ultra claires, illustrées en IA, vues par des milliers de personnes.',
+    thumb1: '/from-zero/thomas-1.jpg',
+    thumb2: '/from-zero/thomas-2.jpg',
   },
 ];
 
@@ -538,6 +545,27 @@ export default function App() {
                     {'★'.repeat(5)}
                   </div>
                   <p className={s.testimonialText}>"{testimonial.text}"</p>
+                </RevealItem>
+              ))}
+            </div>
+          </div>
+
+          <div className={s.fromZeroSection}>
+            <RevealItem className={s.fromZeroHead}>
+              <h3 className={s.fromZeroTitle}>Ils ont commencé de zéro.</h3>
+              <p className={s.fromZeroSubtitle}>Aujourd'hui leurs vidéos font des milliers de vues.</p>
+            </RevealItem>
+            <div className={s.fromZeroGrid}>
+              {fromZeroExamples.map((ex, i) => (
+                <RevealItem key={i} className={s.fromZeroCard}>
+                  <div className={s.fromZeroText}>
+                    <div className={s.fromZeroName}>{ex.name}</div>
+                    <div className={s.fromZeroMeta}>{ex.subtitle}</div>
+                  </div>
+                  <div className={s.fromZeroThumbs}>
+                    <img src={ex.thumb1} alt={`${ex.name} exemple 1`} className={s.fromZeroThumb} />
+                    <img src={ex.thumb2} alt={`${ex.name} exemple 2`} className={s.fromZeroThumb} />
+                  </div>
                 </RevealItem>
               ))}
             </div>
