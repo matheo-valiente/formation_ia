@@ -755,6 +755,64 @@
   margin: 0 auto;
 }
 
+/* Démo vidéo (Pourquoi me choisir ?) */
+.demoVideoSection {
+  margin-bottom: 80px;
+}
+
+.demoVideoCard {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 28px 28px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+
+.demoVideoCard:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(122, 111, 246, 0.08);
+}
+
+.demoVideoTop {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.demoVideoTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.demoVideoHint {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.demoVideoFrame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(122, 111, 246, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+  margin-bottom: 16px;
+}
+
+.demoVideo {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+
 
 /* Partie 1 : Screenshots de crédibilité */
 .credibilitySection {
@@ -1888,6 +1946,73 @@
   padding-left: 8px;
 }
 
+/* CTA email gate (modal) */
+.ctaGateForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ctaGateLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.ctaGateInput {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(122, 111, 246, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  outline: none;
+  font-size: 15px;
+}
+
+.ctaGateInput:focus {
+  border-color: rgba(122, 111, 246, 0.35);
+  box-shadow: 0 0 0 4px rgba(122, 111, 246, 0.12);
+}
+
+.ctaGateError {
+  margin: 0;
+  font-size: 13px;
+  color: var(--red-400);
+}
+
+.ctaGateSubmit {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 100px;
+  border: none;
+  background: linear-gradient(135deg, var(--purple-600), var(--purple-500));
+  color: #fff;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+}
+
+.ctaGateSubmit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 45px rgba(124, 58, 237, 0.35);
+}
+
+.ctaGateSubmit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.ctaGateNote {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 .itemHidden {
   opacity: 0;
   transform: translateY(50px) scale(0.96);
@@ -1961,6 +2086,14 @@
 
   .credibilitySection {
     margin-bottom: 60px;
+  }
+
+  .demoVideoSection {
+    margin-bottom: 60px;
+  }
+
+  .demoVideoCard {
+    padding: 22px 18px 18px;
   }
 
   .compGrid {
@@ -2113,6 +2246,14 @@
 
   .credibilityImageWrapper {
     max-width: 160px;
+  }
+
+  .demoVideoTitle {
+    font-size: 18px;
+  }
+
+  .demoVideoHint {
+    font-size: 13px;
   }
 
   .testimonialCard {

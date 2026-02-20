@@ -110,8 +110,8 @@ const features = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     ),
-    title: 'Module 6 : Bonus — Les meilleurs outils actuels',
-    desc: "Nous verrons comment rester à jour avec les meilleurs outils IA du moment grâce à un guide mis à jour chaque semaine. Tu ne seras jamais obsolète face à l'évolution rapide du marché.",
+    title: 'Module 6 : Monétiser ton audience (même petite)',
+    desc: "Nous verrons comment mettre en place une monétisation simple et efficace, même avec peu d’abonnés : offres, positionnement et étapes concrètes pour transformer ton audience en revenus.",
   },
 ];
 
@@ -153,7 +153,7 @@ const testimonials = [
     role: '@komangdire',
     avatar: '/avatars/alexandre.jpg',
     logo: '/logos/alexandre-logo.png',
-    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, on peut transmettre des concepts en musique et rendre l’apprentissage beaucoup plus engageant. Je suis passé de 200 à 15 000 abonnés en 3 semaines. Pour 14,90 €, c’est largement rentable. La formation est claire, directe, sans blabla inutile.",
+    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, on peut transmettre des concepts en musique et rendre l’apprentissage beaucoup plus engageant. Je suis passé de 200 à 15 000 abonnés en 3 semaines. La formation est claire, directe, sans blabla inutile.",
   },
   {
     name: 'Sophie Martin',
@@ -255,7 +255,7 @@ Les présentes conditions générales de vente (CGV) régissent la vente de la f
 La formation comprend : des vidéos, des documents PDF, des quiz et des exercices pratiques. L'accès est accordé à vie après l'achat.
 
 **Article 3 — Prix**
-Le prix de la formation est de 14,90€ TTC (paiement unique). Ce prix est susceptible d'être modifié à tout moment, mais le prix applicable est celui en vigueur au moment de la commande.
+Le prix de la formation est indiqué au moment de la commande. Il est susceptible d'être modifié à tout moment, mais le prix applicable est celui en vigueur au moment de la commande.
 
 **Article 4 — Paiement**
 Le paiement est effectué en ligne via la plateforme sécurisée Stripe. Les moyens de paiement acceptés incluent : carte bancaire, Apple Pay, Google Pay et autres moyens proposés par Stripe.
@@ -319,10 +319,35 @@ export default function App() {
   const [ctaRef, ctaVis] = useReveal();
   const [legalPage, setLegalPage] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [ctaGateOpen, setCtaGateOpen] = useState(false);
+  const [ctaEmail, setCtaEmail] = useState('');
+  const [ctaGateError, setCtaGateError] = useState('');
+  const [ctaGateSubmitting, setCtaGateSubmitting] = useState(false);
   
-  // Compteur de ventes pour offre limitée (après 100 ventes → 197€)
-  const salesLimit = 100;
-  const [salesCount] = useState(73); // nombre de ventes actuelles (ex. 73/100)
+  const openCtaGate = () => {
+    setCtaGateError('');
+    setCtaGateOpen(true);
+  };
+
+  const handleCtaGateSubmit = (e) => {
+    e.preventDefault();
+    setCtaGateError('');
+
+    const email = String(ctaEmail || '').trim();
+    const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (!ok) {
+      setCtaGateError('Entre un email valide pour continuer.');
+      return;
+    }
+
+    try {
+      setCtaGateSubmitting(true);
+      window.open(STRIPE, '_blank', 'noopener,noreferrer');
+      setCtaGateOpen(false);
+    } finally {
+      setCtaGateSubmitting(false);
+    }
+  };
 
   return (
     <div className={s.page}>
@@ -336,17 +361,15 @@ export default function App() {
           </a>
           <div className={s.navLinks}>
             <a href="#temoignages" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('temoignages'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
-            <a href="#comparaison" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
             <a href="#features" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
             <a href="#objections" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
             <a href="#about" className={s.navLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('about'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>À propos</a>
           </div>
           <div className={s.navRight}>
             <a
-              href={STRIPE}
+              href="#"
               className={s.navCta}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Accéder à la méthode
             </a>
@@ -369,11 +392,14 @@ export default function App() {
             <button className={s.panelClose} onClick={() => setMenuOpen(false)}>✕</button>
             <nav className={s.panelNav}>
               <a href="#temoignages" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('temoignages'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Témoignages</a>
-              <a href="#comparaison" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('comparaison'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Tarif</a>
               <a href="#features" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('features'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Méthode</a>
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
               <a href="#about" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('about'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>À propos</a>
-              <a href={STRIPE} className={s.panelCta} target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}>
+              <a
+                href="#"
+                className={s.panelCta}
+                onClick={(e) => { e.preventDefault(); setMenuOpen(false); openCtaGate(); }}
+              >
                 Accéder à la méthode
               </a>
             </nav>
@@ -403,10 +429,9 @@ export default function App() {
 
           <div className={s.heroActions}>
             <a
-              href={STRIPE}
+              href="#"
               className={s.ctaMain}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Accéder à la méthode
               <Arrow />
@@ -414,7 +439,7 @@ export default function App() {
           </div>
 
           <p className={s.trustLine}>
-            Paiement sécurisé par Stripe
+            Sans engagement, résiliable à tout moment.
           </p>
         </div>
       </section>
@@ -437,33 +462,31 @@ export default function App() {
         <div className={s.socialProofInner}>
           {/* Partie 1 : Résultats / Qui suis-je */}
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Mes réseaux</span>
+            <span className={s.tag}>Création IA</span>
             <h2 className={s.sectionTitle}>
-              Qui <span className={s.gradient}>suis-je ?</span>
+              Pourquoi <span className={s.gradient}>me choisir ?</span>
             </h2>
           </RevealItem>
 
-          <div className={s.credibilitySection}>
-            <RevealItem className={s.credibilityGrid}>
-              <div className={s.credibilityCard}>
-                <div className={s.credibilityImageWrapper}>
-                  <img 
-                    src="/tiktok-profil.jpg" 
-                    alt="Profil TikTok - Nombre d'abonnés" 
-                    className={s.credibilityImage}
-                  />
-                </div>
-                <p className={s.credibilityLabel}>Plus de 50 000 abonnés TikTok</p>
+          <div className={s.demoVideoSection}>
+            <RevealItem className={s.demoVideoCard}>
+              <div className={s.demoVideoTop}>
+                <h3 className={s.demoVideoTitle}>Un exemple de ce que tu sauras faire avec la méthode</h3>
+                <p className={s.demoVideoHint}>
+                  Voici une vidéo que j'ai réalisé <strong>à 100% avec l'IA.</strong> 
+                </p>
               </div>
-              <div className={s.credibilityCard}>
-                <div className={s.credibilityImageWrapper}>
-                  <img 
-                    src="/instagram-vues.jpg" 
-                    alt="Instagram - Vues mensuelles" 
-                    className={s.credibilityImage}
-                  />
-                </div>
-                <p className={s.credibilityLabel}>Plus de 2,7M de vues Instagram générées, en seulement 30 jours</p>
+
+              <div className={s.demoVideoFrame}>
+                <video
+                  className={s.demoVideo}
+                  controls
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src="/creation-ia.mp4" type="video/mp4" />
+                  Ton navigateur ne supporte pas la lecture vidéo.
+                </video>
               </div>
             </RevealItem>
           </div>
@@ -536,7 +559,7 @@ export default function App() {
               <ul className={s.compList}>
                 <li>
                   <span className={s.compX}>✕</span>
-                  Coûts matériels : caméras, micros, logiciels de montage (500€+)
+                  Coûts matériels : caméras, micros, logiciels de montage (investissement important)
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
@@ -557,19 +580,6 @@ export default function App() {
 
             <RevealItem className={`${s.compCard} ${s.compNew}`}>
               <h3 className={s.compCardTitle}>Avec la méthode</h3>
-              <div className={s.compPrice}>
-                14,90€ <span>une seule fois</span>
-              </div>
-              <div className={s.offerTimer}>
-                <div className={s.offerTimerLabel}>Offre limitée</div>
-                <div className={s.offerSalesCount}>
-                  <span className={s.salesCurrent}>{salesCount}</span>
-                  <span className={s.salesSeparator}>/</span>
-                  <span className={s.salesTotal}>{salesLimit}</span>
-                  <span className={s.salesLabel}> ventes</span>
-                </div>
-                <div className={s.offerTimerNote}>Après les 100 premières ventes, le prix passera à 197€</div>
-              </div>
               <ul className={s.compList}>
                 <li>
                   <span className={s.compCheck}>✓</span>
@@ -593,10 +603,9 @@ export default function App() {
                 </li>
               </ul>
               <a
-                href={STRIPE}
+                href="#"
                 className={s.compCta}
-                target="_blank"
-                rel="noopener noreferrer"
+                onClick={(e) => { e.preventDefault(); openCtaGate(); }}
               >
                 Commencer maintenant
                 <Arrow />
@@ -686,10 +695,9 @@ export default function App() {
 
           <div className={s.finalCtaWrap}>
             <a
-              href={STRIPE}
+              href="#"
               className={s.finalCta}
-              target="_blank"
-              rel="noopener noreferrer"
+              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Découvrir la méthode
               <Arrow />
@@ -735,10 +743,9 @@ export default function App() {
             <div className={s.footerCol}>
               <h4 className={s.footerColTitle}>Navigation</h4>
               <a href="#temoignages" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('temoignages'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
-              <a href="#comparaison" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('comparaison'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Tarif</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
-              <a href={STRIPE} className={s.footerLink} target="_blank" rel="noopener noreferrer">Accéder à la méthode</a>
+              <a href="#" className={s.footerLink} onClick={(e) => { e.preventDefault(); openCtaGate(); }}>Accéder à la méthode</a>
             </div>
 
             <div className={s.footerCol}>
@@ -794,6 +801,40 @@ export default function App() {
                 if (line.trim() === '') return <br key={i} />;
                 return <p key={i} className={s.modalP}>{line}</p>;
               })}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {ctaGateOpen && (
+        <div className={s.modalOverlay} onClick={() => setCtaGateOpen(false)}>
+          <div className={s.modal} onClick={(e) => e.stopPropagation()}>
+            <div className={s.modalHeader}>
+              <h2 className={s.modalTitle}>Accéder à la méthode</h2>
+              <button className={s.modalClose} onClick={() => setCtaGateOpen(false)}>✕</button>
+            </div>
+            <div className={s.modalBody}>
+              <form className={s.ctaGateForm} onSubmit={handleCtaGateSubmit}>
+                <label className={s.ctaGateLabel} htmlFor="cta-email">Email</label>
+                <input
+                  id="cta-email"
+                  className={s.ctaGateInput}
+                  type="email"
+                  inputMode="email"
+                  autoComplete="email"
+                  placeholder="ton@email.com"
+                  value={ctaEmail}
+                  onChange={(e) => setCtaEmail(e.target.value)}
+                  required
+                />
+                {ctaGateError && <p className={s.ctaGateError}>{ctaGateError}</p>}
+                <button className={s.ctaGateSubmit} type="submit" disabled={ctaGateSubmitting}>
+                  {ctaGateSubmitting ? 'Redirection…' : 'Continuer'}
+                </button>
+                <p className={s.ctaGateNote}>
+                  Tu seras redirigé vers la méthode après validation de ton email.
+                </p>
+              </form>
             </div>
           </div>
         </div>
