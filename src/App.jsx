@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import s from './App.module.css';
 
 const STRIPE = 'https://buy.stripe.com/7sY14oa8Y9pZ4N26MUcjS00';
+const LEAD_API = import.meta.env.VITE_LEAD_API_URL || '/api/lead';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
 const FACEBOOK = 'https://www.facebook.com/profile.php?id=61588001016498';
@@ -178,6 +179,11 @@ const fromZeroExamples = [
   },
 ];
 
+const fromZeroMarqueeThumbs = [
+  ...fromZeroExamples.flatMap((ex) => [ex.thumb1, ex.thumb2]),
+  ...fromZeroExamples.flatMap((ex) => [ex.thumb1, ex.thumb2]),
+];
+
 function CountUp({ end, suffix }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -336,7 +342,7 @@ export default function App() {
     setCtaGateOpen(true);
   };
 
-  const handleCtaGateSubmit = (e) => {
+  const handleCtaGateSubmit = async (e) => {
     e.preventDefault();
     setCtaGateError('');
 
@@ -347,13 +353,22 @@ export default function App() {
       return;
     }
 
+    setCtaGateSubmitting(true);
     try {
-      setCtaGateSubmitting(true);
-      window.open(STRIPE, '_blank', 'noopener,noreferrer');
-      setCtaGateOpen(false);
-    } finally {
+      const res = await fetch(LEAD_API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error('Envoi échoué');
+    } catch (err) {
+      setCtaGateError('Enregistrement temporairement indisponible. Réessaie ou contacte-nous.');
       setCtaGateSubmitting(false);
+      return;
     }
+    setCtaGateSubmitting(false);
+    setCtaGateOpen(false);
+    window.open(STRIPE, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -555,19 +570,12 @@ export default function App() {
               <h3 className={s.fromZeroTitle}>Ils ont commencé de zéro.</h3>
               <p className={s.fromZeroSubtitle}>Aujourd'hui leurs vidéos font des milliers de vues.</p>
             </RevealItem>
-            <div className={s.fromZeroGrid}>
-              {fromZeroExamples.map((ex, i) => (
-                <RevealItem key={i} className={s.fromZeroCard}>
-                  <div className={s.fromZeroText}>
-                    <div className={s.fromZeroName}>{ex.name}</div>
-                    <div className={s.fromZeroMeta}>{ex.subtitle}</div>
-                  </div>
-                  <div className={s.fromZeroThumbs}>
-                    <img src={ex.thumb1} alt={`${ex.name} exemple 1`} className={s.fromZeroThumb} />
-                    <img src={ex.thumb2} alt={`${ex.name} exemple 2`} className={s.fromZeroThumb} />
-                  </div>
-                </RevealItem>
-              ))}
+            <div className={s.fromZeroMarqueeWrap} aria-hidden="true">
+              <div className={s.fromZeroMarqueeTrack}>
+                {fromZeroMarqueeThumbs.map((src, i) => (
+                  <img key={i} src={src} alt="" className={s.fromZeroMarqueeImg} />
+                ))}
+              </div>
             </div>
           </div>
         </div>

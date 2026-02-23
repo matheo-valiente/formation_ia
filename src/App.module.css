@@ -809,8 +809,9 @@
 .demoVideo {
   width: 100%;
   display: block;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;
   background: #000;
+  object-fit: contain;
 }
 
 
@@ -1022,52 +1023,35 @@
   color: var(--text-secondary);
 }
 
-.fromZeroGrid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-}
-
-.fromZeroCard {
-  padding: 20px 18px 16px;
-  background: var(--surface);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.fromZeroText {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.fromZeroName {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-}
-
-.fromZeroMeta {
-  font-size: 13px;
-  line-height: 1.5;
-  color: var(--text-secondary);
-}
-
-.fromZeroThumbs {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-}
-
-.fromZeroThumb {
+.fromZeroMarqueeWrap {
   width: 100%;
-  border-radius: 8px;
-  border: 1px solid rgba(122, 111, 246, 0.2);
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.fromZeroMarqueeTrack {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: fromZeroScroll 40s linear infinite;
+}
+
+.fromZeroMarqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.fromZeroMarqueeImg {
+  flex-shrink: 0;
+  width: 140px;
+  height: 200px;
   object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(122, 111, 246, 0.2);
+}
+
+@keyframes fromZeroScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .comp {
@@ -2159,9 +2143,6 @@
     margin-bottom: 60px;
   }
 
-  .fromZeroGrid {
-    grid-template-columns: 1fr;
-  }
 
   .demoVideoSection {
     margin-bottom: 60px;
@@ -2346,6 +2327,11 @@
 
   .fromZeroSubtitle {
     font-size: 13px;
+  }
+
+  .fromZeroMarqueeImg {
+    width: 100px;
+    height: 142px;
   }
 
   .final {
