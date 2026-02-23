@@ -143,18 +143,18 @@ const objections = [
 
 const testimonials = [
   {
-    name: 'Créateur vidéos Fortnite',
-    role: '@jonesy134643',
-    avatar: '/avatars/marine.jpg',
-    logo: '/logos/marine-logo.png',
-    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. En seulement 6 jours, j'ai atteint 3200 abonnés avec des simples vidéos d'un perso Fortnite ultra réaliste. Je poste 2-3 fois par jour maintenant et ça prend 30min max.",
+    name: 'Créateur de vidéos IA horreurs',
+    role: '@the.fear.fix',
+    avatar: '/avatars/the-fear-fix.jpg',
+    logo: '/logos/the-fear-fix-logo.png',
+    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais au final, je suis passé de 200 à 15 000 abonnés en 3 semaines avec des simples vidéos horreurs générées par l'IA. J'aime vraiment le fait que les vidéos de la formation soient actualisées très rapidement pour suivre les dernières tendances IA qui (on va se le dire) vont très vite.",
   },
   {
-    name: 'Créateur de vidéos explicatives en musique',
-    role: '@komangdire',
-    avatar: '/avatars/alexandre.jpg',
-    logo: '/logos/alexandre-logo.png',
-    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, on peut transmettre des concepts en musique et rendre l’apprentissage beaucoup plus engageant. Je suis passé de 200 à 15 000 abonnés en 3 semaines. La formation est claire, directe, sans blabla inutile.",
+    name: 'Créatrice de vidéos IA explicatives',
+    role: '@lesaviezvous.fr',
+    avatar: '/avatars/lesaviezvous.jpg',
+    logo: '/logos/lesaviezvous-logo.png',
+    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, je peux transmettre des concepts intéressants tout en rendant l’apprentissage beaucoup plus ludique. En seulement 6 jours, j'ai atteint 3200 abonnés. La formation est claire, directe, sans blabla inutile.",
   },
 ];
 
