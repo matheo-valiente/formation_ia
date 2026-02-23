@@ -136,8 +136,8 @@ const objections = [
   },
   {
     objection: "L'IA va changer, ta formation sera obsolète dans 6 mois…",
-    faux: "Le système est pensé pour évoluer avec les outils.",
-    vrai: "Tu maîtrises les principes (algo, workflow, automatisation), pas juste un outil figé.",
+    faux: "Le système est pensé pour évoluer avec les outils et les nouvelles trend.",
+    vrai: "Chaque semaine je te montre comment réaliser les dernières vidéos IA tendances pour que tu n'aies qu'à copier/coller le workflow sur ton compte.",
   },
 ];
 
@@ -427,7 +427,7 @@ export default function App() {
           </h1>
 
           <p className={s.subtitle}>
-            Crée 30 jours de contenu en 4 heures et transforme tes Reels en revenus récurrents — sans montrer ton visage.
+            Crée 30 jours de contenu en 4 heures et transforme tes vidéos en revenus récurrents — sans montrer ton visage.
           </p>
 
           <div className={s.heroActions}>
