@@ -158,31 +158,12 @@ const testimonials = [
   },
 ];
 
-const fromZeroExamples = [
-  {
-    name: 'Eric',
-    subtitle: 'De 0 à 100k abonnés en quelques semaines avec des vidéos IA horrifiques.',
-    thumb1: '/from-zero/eric-1.jpg',
-    thumb2: '/from-zero/eric-2.jpg',
-  },
-  {
-    name: 'Léa',
-    subtitle: 'Elle transforme des anecdotes du quotidien en mini‑histoires animées par l’IA.',
-    thumb1: '/from-zero/lea-1.jpg',
-    thumb2: '/from-zero/lea-2.jpg',
-  },
-  {
-    name: 'Thomas',
-    subtitle: 'Des explications business ultra claires, illustrées en IA, vues par des milliers de personnes.',
-    thumb1: '/from-zero/thomas-1.jpg',
-    thumb2: '/from-zero/thomas-2.jpg',
-  },
-];
+// Screens (comptes) pour le bandeau défilant
+// Ajoute autant de fichiers que tu veux dans `public/from-zero/` : `compte_1.jpg`, `compte_2.jpg`, etc.
+const fromZeroAccounts = Array.from({ length: 9 }, (_, i) => `/from-zero/compte_${i + 1}.jpg`);
 
-const fromZeroMarqueeThumbs = [
-  ...fromZeroExamples.flatMap((ex) => [ex.thumb1, ex.thumb2]),
-  ...fromZeroExamples.flatMap((ex) => [ex.thumb1, ex.thumb2]),
-];
+// Dupliqué pour une boucle infinie fluide
+const fromZeroMarqueeThumbs = [...fromZeroAccounts, ...fromZeroAccounts];
 
 function CountUp({ end, suffix }) {
   const [count, setCount] = useState(0);
@@ -437,7 +418,7 @@ export default function App() {
         <div className={s.heroInner}>
           <div className={s.badge}>
             <span className={s.badgePulse} />
-            Créer une marque forte sans caméra ni micro
+            60% des marques privilégient désormais les partenariats avec des micro-influenceurs
           </div>
 
           <h1 className={s.title}>
@@ -461,7 +442,7 @@ export default function App() {
           </div>
 
           <p className={s.trustLine}>
-            Sans engagement, résiliable à tout moment.
+            Créer une marque forte sans caméra ni micro
           </p>
         </div>
       </section>
