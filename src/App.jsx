@@ -147,6 +147,10 @@ const testimonials = [
     role: '@the.fear.fix',
     avatar: '/avatars/the-fear-fix.jpg',
     logo: '/logos/the-fear-fix-logo.png',
+    screens: [
+      '/screens/the-fear-fix-1.jpg',
+      '/screens/the-fear-fix-2.jpg',
+    ],
     text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais au final, je suis passé de 200 à 15 000 abonnés en 3 semaines avec des simples vidéos horreurs générées par l'IA. J'aime vraiment le fait que les vidéos de la formation soient actualisées très rapidement pour suivre les dernières tendances IA qui (on va se le dire) vont très vite.",
   },
   {
@@ -154,6 +158,10 @@ const testimonials = [
     role: '@lesaviezvous.fr',
     avatar: '/avatars/lesaviezvous.jpg',
     logo: '/logos/lesaviezvous-logo.png',
+    screens: [
+      '/screens/lesaviezvous-1.jpg',
+      '/screens/lesaviezvous-2.jpg',
+    ],
     text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, je peux transmettre des concepts intéressants tout en rendant l’apprentissage beaucoup plus ludique. En seulement 6 jours, j'ai atteint 3200 abonnés. La formation est claire, directe, sans blabla inutile.",
   },
 ];
@@ -317,6 +325,23 @@ export default function App() {
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaGateError, setCtaGateError] = useState('');
   const [ctaGateSubmitting, setCtaGateSubmitting] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) {
+        setScrollProgress(0);
+        return;
+      }
+      const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+      setScrollProgress(progress);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   
   const openCtaGate = () => {
     setCtaGateError('');
@@ -386,6 +411,12 @@ export default function App() {
               <span />
             </button>
           </div>
+        </div>
+        <div className={s.scrollProgress}>
+          <div
+            className={s.scrollProgressBar}
+            style={{ transform: `scaleX(${scrollProgress / 100})` }}
+          />
         </div>
       </nav>
 
@@ -541,6 +572,20 @@ export default function App() {
                     {'★'.repeat(5)}
                   </div>
                   <p className={s.testimonialText}>"{testimonial.text}"</p>
+                  {testimonial.screens && testimonial.screens.length > 0 && (
+                    <div className={s.testimonialScreens}>
+                      {testimonial.screens.map((src, idx) => (
+                        <div key={idx} className={s.testimonialScreenWrapper}>
+                          <img
+                            src={src}
+                            alt={`Capture du compte ${testimonial.role} (${idx + 1})`}
+                            className={s.testimonialScreenImg}
+                            loading="lazy"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </RevealItem>
               ))}
             </div>
