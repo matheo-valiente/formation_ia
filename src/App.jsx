@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import s from './App.module.css';
 
-const STRIPE = 'https://www.skool.com/intelligence-artificielle-info-7565/about';
+const SKOOL = 'https://www.skool.com/intelligence-artificielle-info-7565/about';
 const LEAD_API = import.meta.env.VITE_LEAD_API_URL || '/api/lead';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
@@ -260,7 +260,7 @@ La formation comprend : des vidéos, des documents PDF, des quiz et des exercice
 Le prix de la formation est indiqué au moment de la commande. Il est susceptible d'être modifié à tout moment, mais le prix applicable est celui en vigueur au moment de la commande.
 
 **Article 4 — Paiement**
-Le paiement est effectué en ligne via la plateforme sécurisée Stripe. Les moyens de paiement acceptés incluent : carte bancaire, Apple Pay, Google Pay et autres moyens proposés par Stripe.
+Le paiement est effectué en ligne via la plateforme sécurisée Skool. Les moyens de paiement acceptés incluent : carte bancaire, Apple Pay, Google Pay et autres moyens proposés par Skool.
 
 **Article 5 — Accès à la formation**
 L'accès à la formation est immédiat après confirmation du paiement. Un email de confirmation est envoyé à l'adresse indiquée lors de l'achat.
@@ -288,7 +288,7 @@ intelligence_artificielle_info / CYIA
 Email : contact@intelligence-artificielle-info.com
 
 **Données collectées**
-Lors de l'achat de la formation, les données suivantes sont collectées via Stripe : nom, adresse email et informations de paiement. Ces données sont nécessaires au traitement de votre commande.
+Lors de l'achat de la formation, les données suivantes sont collectées via Skool : nom, adresse email et informations de paiement. Ces données sont nécessaires au traitement de votre commande.
 
 **Utilisation des données**
 Vos données sont utilisées exclusivement pour :
@@ -297,7 +297,7 @@ Vos données sont utilisées exclusivement pour :
 - La communication relative à votre achat
 
 **Sous-traitants**
-- Stripe (traitement des paiements) — stripe.com
+- Skool (plateforme de formation et de paiement) — skool.com
 - Vercel (hébergement du site) — vercel.com
 
 **Cookies**
@@ -310,7 +310,7 @@ Vos données sont conservées pendant la durée nécessaire à la gestion de vot
 Conformément au RGPD, vous disposez des droits suivants : accès, rectification, suppression, limitation, portabilité et opposition. Pour exercer ces droits, contactez-nous à : contact@intelligence-artificielle-info.com
 
 **Sécurité**
-Les paiements sont sécurisés par Stripe (certifié PCI DSS). Nous ne stockons aucune donnée bancaire sur nos serveurs.
+Les paiements sont sécurisés par Skool. Nous ne stockons aucune donnée bancaire sur nos serveurs.
 
 **Contact**
 Pour toute question relative à vos données personnelles : contact@intelligence-artificielle-info.com`,
@@ -325,23 +325,6 @@ export default function App() {
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaGateError, setCtaGateError] = useState('');
   const [ctaGateSubmitting, setCtaGateSubmitting] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollTop = window.scrollY || window.pageYOffset;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight <= 0) {
-        setScrollProgress(0);
-        return;
-      }
-      const progress = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
-      setScrollProgress(progress);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
   
   const openCtaGate = () => {
     setCtaGateError('');
@@ -374,7 +357,7 @@ export default function App() {
     }
     setCtaGateSubmitting(false);
     setCtaGateOpen(false);
-    window.open(STRIPE, '_blank', 'noopener,noreferrer');
+    window.location.href = SKOOL;
   };
 
   return (
@@ -411,12 +394,6 @@ export default function App() {
               <span />
             </button>
           </div>
-        </div>
-        <div className={s.scrollProgress}>
-          <div
-            className={s.scrollProgressBar}
-            style={{ transform: `scaleX(${scrollProgress / 100})` }}
-          />
         </div>
       </nav>
 
