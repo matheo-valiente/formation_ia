@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import s from './App.module.css';
 
-const STRIPE = 'https://buy.stripe.com/7sY14oa8Y9pZ4N26MUcjS00';
+const STRIPE = 'https://www.skool.com/intelligence-artificielle-info-7565/about';
 const LEAD_API = import.meta.env.VITE_LEAD_API_URL || '/api/lead';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
