@@ -489,15 +489,14 @@ export default function App() {
               </div>
 
               <div className={s.demoVideoFrame}>
-                <video
+                <iframe
                   className={s.demoVideo}
-                  controls
-                  playsInline
-                  preload="metadata"
-                >
-                  <source src="/creation-ia.mp4" type="video/mp4" />
-                  Ton navigateur ne supporte pas la lecture vidéo.
-                </video>
+                  src="https://www.youtube.com/embed/151gZATn94w"
+                  title="Démo vidéo IA"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               </div>
             </RevealItem>
           </div>
