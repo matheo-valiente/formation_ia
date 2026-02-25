@@ -228,11 +228,11 @@ const legalContent = {
   mentions: {
     title: 'Mentions légales',
     body: `**Éditeur du site**
-intelligence_artificielle_info / CYIA
+intelligence_artificielle_info
 Statut : Auto-entrepreneur
 Site web : intelligence-artificielle-info.com
 Email : contact@intelligence-artificielle-info.com
-Directeur de la publication : intelligence_artificielle_info / CYIA
+Directeur de la publication : intelligence_artificielle_info 
 
 **Hébergement**
 Ce site est hébergé par Vercel Inc.
@@ -240,10 +240,10 @@ Ce site est hébergé par Vercel Inc.
 Site web : vercel.com
 
 **Propriété intellectuelle**
-L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes) est la propriété exclusive de intelligence_artificielle_info / CYIA, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation préalable est interdite.
+L'ensemble du contenu de ce site (textes, images, vidéos, logos, graphismes) est la propriété exclusive de intelligence_artificielle_info, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation préalable est interdite.
 
 **Responsabilité**
-intelligence_artificielle_info / CYIA s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, elle ne saurait être tenue responsable des omissions, inexactitudes ou résultats obtenus suite à l'utilisation de ces informations.
+intelligence_artificielle_info s'efforce d'assurer l'exactitude des informations diffusées sur ce site. Toutefois, elle ne saurait être tenue responsable des omissions, inexactitudes ou résultats obtenus suite à l'utilisation de ces informations.
 
 **Contact**
 Pour toute question, vous pouvez nous contacter à : contact@intelligence-artificielle-info.com`,
@@ -251,16 +251,16 @@ Pour toute question, vous pouvez nous contacter à : contact@intelligence-artifi
   cgv: {
     title: 'Conditions générales de vente',
     body: `**Article 1 — Objet**
-Les présentes conditions générales de vente (CGV) régissent la vente de la formation en ligne proposée par intelligence_artificielle_info / CYIA sur le site intelligence-artificielle-info.com.
+Les présentes conditions générales de vente (CGV) régissent la vente de la formation en ligne proposée par intelligence_artificielle_info sur le site intelligence-artificielle-info.com.
 
 **Article 2 — Produit**
-La formation comprend : des vidéos, des documents PDF, des quiz et des exercices pratiques. L'accès est accordé à vie après l'achat.
+La formation comprend : des vidéos, des documents PDF et des exercices pratiques.
 
 **Article 3 — Prix**
 Le prix de la formation est indiqué au moment de la commande. Il est susceptible d'être modifié à tout moment, mais le prix applicable est celui en vigueur au moment de la commande.
 
 **Article 4 — Paiement**
-Le paiement est effectué en ligne via la plateforme sécurisée Skool. Les moyens de paiement acceptés incluent : carte bancaire, Apple Pay, Google Pay et autres moyens proposés par Skool.
+Le paiement est effectué en ligne via la plateforme sécurisée Skool. Les moyens de paiement acceptés incluent les moyens proposés par Skool.
 
 **Article 5 — Accès à la formation**
 L'accès à la formation est immédiat après confirmation du paiement. Un email de confirmation est envoyé à l'adresse indiquée lors de l'achat.
@@ -272,7 +272,7 @@ Conformément à l'article L221-28 du Code de la consommation, le droit de rétr
 Le contenu de la formation est protégé par le droit d'auteur. Toute reproduction, partage ou revente est strictement interdit.
 
 **Article 8 — Responsabilité**
-Les résultats obtenus grâce à la formation dépendent de l'implication de l'utilisateur. intelligence_artificielle_info / CYIA ne garantit aucun résultat spécifique en termes de revenus ou de croissance.
+Les résultats obtenus grâce à la formation dépendent de l'implication de l'utilisateur. intelligence_artificielle_info ne garantit aucun résultat spécifique en termes de revenus ou de croissance.
 
 **Article 9 — Droit applicable**
 Les présentes CGV sont soumises au droit français. En cas de litige, les tribunaux français seront seuls compétents.
@@ -284,7 +284,7 @@ Les présentes CGV sont soumises au droit français. En cas de litige, les tribu
     body: `**Dernière mise à jour** : ${new Date().toLocaleDateString('fr-FR')}
 
 **Responsable du traitement**
-intelligence_artificielle_info / CYIA
+intelligence_artificielle_info
 Email : contact@intelligence-artificielle-info.com
 
 **Données collectées**
