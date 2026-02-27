@@ -430,12 +430,12 @@ export default function App() {
           </div>
 
           <h1 className={s.title}>
-            De 0 à 10 000 abonnés en 30 jours{' '}
+            Crée 30 vidéos IA par mois en 4 heures{' '}
             <span className={s.gradient}>grâce à l'IA</span>
           </h1>
 
           <p className={s.subtitle}>
-            Crée 30 jours de contenu en 4 heures et transforme tes vidéos en revenus récurrents — sans montrer ton visage.
+            Comment j'automatise ma production de contenu entièrement avec l'IA — sans montrer mon visage.
           </p>
 
           <div className={s.heroActions}>
