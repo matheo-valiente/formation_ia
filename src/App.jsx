@@ -117,9 +117,9 @@ const features = [
 ];
 
 const stats = [
-  { end: 90, suffix: '%', label: 'Du compte automatisé' },
-  { end: 10, suffix: 'K', label: 'Abonnés en 30 jours' },
-  { end: 4, suffix: 'h', label: 'Pour 30 jours de contenu' },
+  { end: 90, suffix: '%', label: 'Du travail automatisé' },
+  { end: 500, suffix: '€', label: 'De revenus régulier et plus' },
+  { end: 4, suffix: 'h', label: 'Investis par mois' },
   { end: 24, suffix: '/7', label: 'Système autonome' },
 ];
 
@@ -426,16 +426,16 @@ export default function App() {
         <div className={s.heroInner}>
           <div className={s.badge}>
             <span className={s.badgePulse} />
-            60% des marques privilégient désormais les partenariats avec des micro-influenceurs
+            Tu maîrises l'IA mieux que 99% des gens... mais tu ne gagnes pas un euro avec ce savoir ?
           </div>
 
           <h1 className={s.title}>
-            Crée 30 vidéos IA par mois en 4 heures{' '}
-            <span className={s.gradient}>grâce à l'IA</span>
+            Transforme ta connaissance de l'IA en{' '}
+            <span className={s.gradient}>revenus automatisés</span>
           </h1>
 
           <p className={s.subtitle}>
-            Comment j'automatise ma production de contenu entièrement avec l'IA — sans montrer mon visage.
+            Le système complet pour bâtir une autorité IA anonyme, attirer une audience qualifiée, et générer tes premiers 500€/mois
           </p>
 
           <div className={s.heroActions}>
@@ -450,7 +450,7 @@ export default function App() {
           </div>
 
           <p className={s.trustLine}>
-            Créer une marque forte sans caméra ni micro
+            Monétise ce que tu sais déjà sur l'IA
           </p>
         </div>
       </section>
@@ -597,7 +597,7 @@ export default function App() {
               <ul className={s.compList}>
                 <li>
                   <span className={s.compX}>✕</span>
-                  Coûts matériels : caméras, micros, logiciels de montage (200€+)
+                  Coûts matériels et logiciels
                 </li>
                 <li>
                   <span className={s.compX}>✕</span>
