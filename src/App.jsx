@@ -6,7 +6,7 @@ const LEAD_API = import.meta.env.VITE_LEAD_API_URL || '/api/lead';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
 const FACEBOOK = 'https://www.facebook.com/profile.php?id=61588001016498';
-const TIKTOK = 'https://www.tiktok.com/@intelligence_artificielle_info';
+const TIKTOK = 'https://www.tiktok.com/@ia__info';
 
 
 function useReveal(threshold = 0.12) {
@@ -62,8 +62,8 @@ const features = [
         <path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z" />
       </svg>
     ),
-    title: 'Module 1 : Choisir ton modèle',
-    desc: "Nous verrons comment identifier le modèle de vidéos IA qui te correspond et valider sa viabilité économique. Tu repartiras avec un plan d'attaque précis — sans jamais montrer ton visage.",
+    title: 'Module 1 : Qui tu es (Positionnement)',
+    desc: "Nous verrons comment identifier quelle partie de ton expertise IA génère le plus de valeur économique et comment construire un positionnement unique qui attire naturellement les opportunités de revenus.",
   },
   {
     icon: (
@@ -71,8 +71,8 @@ const features = [
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
       </svg>
     ),
-    title: 'Module 2 : Devenir l\'ami de l\'algorithme',
-    desc: "Nous verrons comment comprendre mécaniquement ce que recherche l'algorithme et configurer ton compte pour qu'il propulse naturellement tes Reels. Tu ne posteras plus dans le vide.",
+    title: 'Module 2 : Qui tu attires (Audience qualifiée)',
+    desc: "Nous verrons comment construire une présence qui attire automatiquement des gens prêts à payer pour de l’expertise IA : entrepreneurs, décideurs, professionnels qui cherchent des solutions.",
   },
   {
     icon: (
@@ -80,8 +80,8 @@ const features = [
         <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     ),
-    title: 'Module 3 : Décoder l\'esprit humain',
-    desc: "Nous verrons comment identifier les patterns cachés des Reels à millions de vues et développer l'œil critique qui transforme tes créations en contenu viral.",
+    title: 'Module 3 : Comment tu communiques (Autorité)',
+    desc: "Nous verrons comment démontrer ton expertise de manière visible et crédible. Tu apprendras à créer une présence qui fait dire “cette personne maîtrise vraiment son sujet”.",
   },
   {
     icon: (
@@ -89,8 +89,8 @@ const features = [
         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
       </svg>
     ),
-    title: 'Module 4 : Automatiser la création',
-    desc: "Nous verrons comment générer scripts viraux, descriptions et idées de contenu en quelques minutes, et créer ton identité visuelle professionnelle sans caméra ni micro.",
+    title: 'Module 4 : Comment tu produis (IA)',
+    desc: "Nous verrons comment utiliser les outils IA que tu connais déjà pour automatiser 90% du travail répétitif et te concentrer uniquement sur ce qui génère des revenus et de la croissance.",
   },
   {
     icon: (
@@ -101,8 +101,8 @@ const features = [
         <line x1="3" y1="10" x2="21" y2="10" />
       </svg>
     ),
-    title: 'Module 5 : Produire 30 jours en 4 heures',
-    desc: "Nous verrons comment organiser ta production en blocs séquentiels pour créer un mois entier de contenu en une seule session. Tu seras libre le reste du temps.",
+    title: 'Module 5 : Comment tu scales',
+    desc: "Nous verrons comment organiser ton activité en sessions ultra-concentrées pour que ton business IA génère des revenus en arrière-plan pendant que tu vis ta vie. Tu ne dépendras jamais d’une seule source. Tu construis un écosystème de revenus.",
   },
   {
     icon: (
@@ -111,14 +111,14 @@ const features = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
       </svg>
     ),
-    title: 'Module 6 : Monétiser ton audience (même petite)',
-    desc: "Nous verrons comment mettre en place une monétisation simple et efficace, même avec 10 000 abonnés : offres, positionnement et étapes concrètes pour transformer ton audience en revenus.",
+    title: 'Module 6 : Comment tu monétises (Récurrents)',
+    desc: "Nous verrons comment mettre en place plusieurs sources de revenus complémentaires qui fonctionnent ensemble.",
   },
 ];
 
 const stats = [
   { end: 90, suffix: '%', label: 'Du travail automatisé' },
-  { end: 500, suffix: '€', label: 'De revenus régulier et plus' },
+  { end: 0, suffix: '€', label: 'Pour démarrer' },
   { end: 4, suffix: 'h', label: 'Investis par mois' },
   { end: 24, suffix: '/7', label: 'Système autonome' },
 ];
@@ -127,17 +127,17 @@ const objections = [
   {
     objection: "Mais toi t'es expert en IA, normal que ça marche…",
     faux: "Cette méthode ne nécessite AUCUNE compétence technique.",
-    vrai: "Si tu sais utiliser Instagram, tu peux appliquer ce système.",
+    vrai: "Si tu sais utiliser un smartphone et que tu as un interêt pour l'IA, tu peux l'appliquer.",
   },
   {
-    objection: "Ça marche que pour les gros comptes…",
-    faux: "La méthode fonctionne dès le début, pas seulement une fois que t'as 10K abonnés.",
-    vrai: "Les clients ont démarré de zéro ou avec peu d'audience.",
+    objection: "J'ai déjà essayé de gagner de l'argent en ligne, mais ça ne marche pas.",
+    faux: "Ce n'est pas parce que tu n'as pas réussi jusqu'à aujourd'hui, que tu ne réussiras jamais.",
+    vrai: "Les seules personnes sûres de ne pas réussir sont celles qui n’ont même pas essayé.",
   },
   {
     objection: "L'IA va changer, ta formation sera obsolète dans 6 mois…",
-    faux: "Le système est pensé pour évoluer avec les outils et les nouvelles trend.",
-    vrai: "Chaque semaine je te montre comment réaliser les dernières vidéos IA tendances pour que tu n'aies qu'à copier/coller le workflow sur ton compte.",
+    faux: "La méthode s'adapte en temps réel aux nouveaux outils.",
+    vrai: "Chaque semaine, je met à jour un PDF avec les nouveaux outils.",
   },
 ];
 
@@ -436,7 +436,7 @@ export default function App() {
           </h1>
 
           <p className={s.subtitle}>
-            Le système complet pour bâtir une autorité IA anonyme, attirer une audience qualifiée, et générer tes premiers 500€/mois
+            Le système complet pour transformer ta passion IA en business autonome et générer tes premiers revenus récurrents ce mois-ci
           </p>
 
           <div className={s.heroActions}>
@@ -718,10 +718,10 @@ export default function App() {
 
           <ul className={s.finalList}>
             {[
-              'Un système de production de contenu rodé (4h/mois au lieu de 40h)',
-              '10K abonnés (ou en bonne voie)',
-              '30 jours de contenu d\'avance (zéro stress)',
-              'Un compte qui grandit pendant que tu dors'
+              'Un système automatisé qui tourne sans toi',
+              "Tes premières entrées d'argent récurrentes",
+              "Un actif numérique qui prend de la valeur chaque semaine (l'IA)",
+              'Une source de revenus que tu contrôles entièrement'
             ].map((item, i) => (
               <RevealItem key={i} className={s.finalListItem}>
                 <div className={s.finalCheckWrapper}>
@@ -757,7 +757,7 @@ export default function App() {
           </RevealItem>
           <div className={s.aboutContent}>
             <p className={s.aboutText}>
-              Tu as une question sur la formation ou besoin d'aide ? N'hésite pas à me contacter directement en appuyant sur le bouton ci-dessous.
+              Tu as une question sur la méthode ou besoin d'aide ? N'hésite pas à me contacter directement en appuyant sur le bouton ci-dessous.
             </p>
             <a href="mailto:contact@intelligence-artificielle-info.com" className={s.aboutEmail}>
               contact@intelligence-artificielle-info.com
@@ -775,7 +775,7 @@ export default function App() {
                 Intelligence Artificielle Info
               </a>
               <p className={s.footerDesc}>
-                La méthode complète pour passer de 0 à 10 000 abonnés en 30 jours grâce à l'IA.
+                La méthode complète pour générer ses premiers revenus grâce à l'IA.
               </p>
             </div>
 
