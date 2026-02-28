@@ -144,34 +144,29 @@ const objections = [
 const testimonials = [
   {
     name: 'Créateur de vidéos IA horreurs',
-    role: '@the.fear.fix',
     avatar: '/avatars/the-fear-fix.jpg',
     logo: '/logos/the-fear-fix-logo.png',
-    screens: [
-      '/screens/the-fear-fix-1.jpg',
-      '/screens/the-fear-fix-2.jpg',
-    ],
     text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais au final, je suis passé de 200 à 15 000 abonnés en 3 semaines avec des simples vidéos horreurs générées par l'IA. J'aime vraiment le fait que les vidéos de la formation soient actualisées très rapidement pour suivre les dernières tendances IA qui (on va se le dire) vont très vite.",
   },
   {
     name: 'Créatrice de vidéos IA explicatives',
-    role: '@lesaviezvous.fr',
     avatar: '/avatars/lesaviezvous.jpg',
     logo: '/logos/lesaviezvous-logo.png',
-    screens: [
-      '/screens/lesaviezvous-1.jpg',
-      '/screens/lesaviezvous-2.jpg',
-    ],
     text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, je peux transmettre des concepts intéressants tout en rendant l’apprentissage beaucoup plus ludique. En seulement 6 jours, j'ai atteint 3200 abonnés. La formation est claire, directe, sans blabla inutile.",
   },
+  {
+    name: 'Consultant IA pour PME',
+    avatar: '/avatars/consultant-pme.jpg',
+    logo: '/logos/consultant-pme-logo.png',
+    text: "Avant la méthode, je connaissais bien les outils IA mais je n'arrivais pas à en faire une offre claire. En appliquant le positionnement et les scripts proposés, j'ai signé mes deux premiers clients PME en moins de 4 semaines, sans avoir à démarcher à froid.",
+  },
+  {
+    name: 'Formatrice IA pour indépendants',
+    avatar: '/avatars/formatrice-indep.jpg',
+    logo: '/logos/formatrice-indep-logo.png',
+    text: "Je donnais déjà des conseils IA gratuitement sur les réseaux, mais je ne savais pas comment monétiser. La structure de la formation m'a permis de créer une offre simple, avec un système d’acquisition qui tourne quasiment tout seul. Aujourd’hui, mes sessions sont remplies plusieurs semaines à l’avance.",
+  },
 ];
-
-// Screens (comptes) pour le bandeau défilant
-// Ajoute autant de fichiers que tu veux dans `public/from-zero/` : `compte_1.jpg`, `compte_2.jpg`, etc.
-const fromZeroAccounts = Array.from({ length: 9 }, (_, i) => `/from-zero/compte_${i + 1}.jpg`);
-
-// Dupliqué pour une boucle infinie fluide
-const fromZeroMarqueeThumbs = [...fromZeroAccounts, ...fromZeroAccounts];
 
 function CountUp({ end, suffix }) {
   const [count, setCount] = useState(0);
@@ -542,43 +537,14 @@ export default function App() {
                     </div>
                     <div className={s.testimonialInfo}>
                       <div className={s.testimonialName}>{testimonial.name}</div>
-                      <div className={s.testimonialRole}>{testimonial.role}</div>
                     </div>
                   </div>
                   <div className={s.testimonialStars}>
                     {'★'.repeat(5)}
                   </div>
                   <p className={s.testimonialText}>"{testimonial.text}"</p>
-                  {testimonial.screens && testimonial.screens.length > 0 && (
-                    <div className={s.testimonialScreens}>
-                      {testimonial.screens.map((src, idx) => (
-                        <div key={idx} className={s.testimonialScreenWrapper}>
-                          <img
-                            src={src}
-                            alt={`Capture du compte ${testimonial.role} (${idx + 1})`}
-                            className={s.testimonialScreenImg}
-                            loading="lazy"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </RevealItem>
               ))}
-            </div>
-          </div>
-
-          <div className={s.fromZeroSection}>
-            <RevealItem className={s.fromZeroHead}>
-              <h3 className={s.fromZeroTitle}>Ils ont commencé de zéro.</h3>
-              <p className={s.fromZeroSubtitle}>Aujourd'hui leurs vidéos font des milliers de vues.</p>
-            </RevealItem>
-            <div className={s.fromZeroMarqueeWrap} aria-hidden="true">
-              <div className={s.fromZeroMarqueeTrack}>
-                {fromZeroMarqueeThumbs.map((src, i) => (
-                  <img key={i} src={src} alt="" className={s.fromZeroMarqueeImg} />
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -803,7 +769,7 @@ export default function App() {
               <a href={INSTA} className={s.footerSocial} target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <InstaIcon />
               </a>
-              <a href="#" className={s.footerSocial} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <a href={TIKTOK} className={s.footerSocial} target="_blank" rel="noopener noreferrer" aria-label="TikTok">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.87a8.16 8.16 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.3z"/>
                 </svg>
