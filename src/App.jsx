@@ -144,26 +144,26 @@ const objections = [
 const testimonials = [
   {
     name: 'Thomas, 29 ans, Dev IA en entreprise',
-    avatar: '/avatars/the-fear-fix.jpg',
-    logo: '/logos/the-fear-fix-logo.png',
+    avatar: '/avatars/thomas.jpg',
+    logo: '/logos/thomas-logo.png',
     text: "Depuis longtemps, j’utilise beaucoup Claude Code et j’ai fait quelques projets avec mais je gagnais 0 € en dehors de mon salaire. En 3 semaines, j’ai mis en place la méthode. Aujourd’hui, je génère un revenu à côté sans y passer beaucoup de temps en plus."
   },
   {
     name: 'Sarah, 31 ans, Product Manager IA en startup',
-    avatar: '/avatars/lesaviezvous.jpg',
-    logo: '/logos/lesaviezvous-logo.png',
+    avatar: '/avatars/sarah.jpg',
+    logo: '/logos/sarah-logo.png',
     text: "J’adore mon job. Mais j’avais une expertise que je n’utilisais qu’en interne. Je voulais la partager, aider d’autres gens… et accessoirement générer un revenu supplémentaire. J'ai eu des résultats en moins d'un mois. Je recommande !",
   },
   {
     name: 'Léa, 24 ans, Master en Data',
-    avatar: '/avatars/consultant-pme.jpg',
-    logo: '/logos/consultant-pme-logo.png',
+    avatar: '/avatars/lea.jpg',
+    logo: '/logos/lea-logo.png',
     text: "Je cherchais un moyen de monétiser mes compétences sans attendre mon diplôme. En 1 mois, j’ai construit une petite audience qualifiée et généré mes premiers 600€. Le système est vraiment simple et bien expliqué !",
   },
   {
-    name: 'Marc, 42 ans, Ex-commercial devenu passionné IA',
-    avatar: '/avatars/formatrice-indep.jpg',
-    logo: '/logos/formatrice-indep-logo.png',
+    name: 'Lucien, 42 ans, Ex-commercial devenu passionné IA',
+    avatar: '/avatars/lucien.jpg',
+    logo: '/logos/lucien-lgoo.png',
     text: "À 42 ans, je me suis reconverti dans l’IA par passion. Mais je ne savais pas comment en faire un business. Ce système m’a montré comment transformer ma nouvelle expertise en revenus. Ce n’est pas constant mais j’ai de vrais résultats en ayant mis seulement 19€ dans la méthode.",
   },
 ];
@@ -469,7 +469,7 @@ export default function App() {
         <div className={s.socialProofInner}>
           {/* Partie 1 : Résultats / Qui suis-je */}
           <RevealItem className={s.sectionHead}>
-            <span className={s.tag}>Création IA</span>
+            <span className={s.tag}>Pourquoi moi ?</span>
             <h2 className={s.sectionTitle}>
               Pourquoi <span className={s.gradient}>me choisir ?</span>
             </h2>
@@ -478,7 +478,7 @@ export default function App() {
           <div className={s.demoVideoSection}>
             <RevealItem className={s.demoVideoCard}>
               <div className={s.demoVideoTop}>
-                <h3 className={s.demoVideoTitle}>Un exemple de ce que tu sauras faire avec la méthode</h3>
+                <h3 className={s.demoVideoTitle}>Un exemple assez imprésionnant de la puissance de l'IA</h3>
                 <p className={s.demoVideoHint}>
                   Voici une vidéo que j'ai réalisé <strong>à 100% avec l'IA.</strong> 
                 </p>
