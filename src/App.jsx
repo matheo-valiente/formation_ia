@@ -359,6 +359,7 @@ export default function App() {
     setCtaGateOpen(false);
     window.location.href = SKOOL;
   };
+  
 
   return (
     <div className={s.page}>
