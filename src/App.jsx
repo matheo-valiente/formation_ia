@@ -143,28 +143,28 @@ const objections = [
 
 const testimonials = [
   {
-    name: 'Créateur de vidéos IA horreurs',
+    name: 'Thomas, 29 ans, Dev IA en entreprise',
     avatar: '/avatars/the-fear-fix.jpg',
     logo: '/logos/the-fear-fix-logo.png',
-    text: "J'étais sceptique au début, surtout sur la partie 'sans montrer son visage'. Mais au final, je suis passé de 200 à 15 000 abonnés en 3 semaines avec des simples vidéos horreurs générées par l'IA. J'aime vraiment le fait que les vidéos de la formation soient actualisées très rapidement pour suivre les dernières tendances IA qui (on va se le dire) vont très vite.",
+    text: "Depuis longtemps, j’utilise beaucoup Claude Code et j’ai fait quelques projets avec mais je gagnais 0 € en dehors de mon salaire. En 3 semaines, j’ai mis en place la méthode. Aujourd’hui, je génère un revenu à côté sans y passer beaucoup de temps en plus."
   },
   {
-    name: 'Créatrice de vidéos IA explicatives',
+    name: 'Sarah, 31 ans, Product Manager IA en startup',
     avatar: '/avatars/lesaviezvous.jpg',
     logo: '/logos/lesaviezvous-logo.png',
-    text: "J’ai toujours voulu créer du contenu utile et intéressant, mais ça finissait souvent par être ennuyeux. Aujourd’hui, grâce à l’IA, je peux transmettre des concepts intéressants tout en rendant l’apprentissage beaucoup plus ludique. En seulement 6 jours, j'ai atteint 3200 abonnés. La formation est claire, directe, sans blabla inutile.",
+    text: "J’adore mon job. Mais j’avais une expertise que je n’utilisais qu’en interne. Je voulais la partager, aider d’autres gens… et accessoirement générer un revenu supplémentaire. J'ai eu des résultats en moins d'un mois. Je recommande !",
   },
   {
-    name: 'Consultant IA pour PME',
+    name: 'Léa, 24 ans, Master en Data',
     avatar: '/avatars/consultant-pme.jpg',
     logo: '/logos/consultant-pme-logo.png',
-    text: "Avant la méthode, je connaissais bien les outils IA mais je n'arrivais pas à en faire une offre claire. En appliquant le positionnement et les scripts proposés, j'ai signé mes deux premiers clients PME en moins de 4 semaines, sans avoir à démarcher à froid.",
+    text: "Je cherchais un moyen de monétiser mes compétences sans attendre mon diplôme. En 1 mois, j’ai construit une petite audience qualifiée et généré mes premiers 600€. Le système est vraiment simple et bien expliqué !",
   },
   {
-    name: 'Formatrice IA pour indépendants',
+    name: 'Marc, 42 ans, Ex-commercial devenu passionné IA',
     avatar: '/avatars/formatrice-indep.jpg',
     logo: '/logos/formatrice-indep-logo.png',
-    text: "Je donnais déjà des conseils IA gratuitement sur les réseaux, mais je ne savais pas comment monétiser. La structure de la formation m'a permis de créer une offre simple, avec un système d’acquisition qui tourne quasiment tout seul. Aujourd’hui, mes sessions sont remplies plusieurs semaines à l’avance.",
+    text: "À 42 ans, je me suis reconverti dans l’IA par passion. Mais je ne savais pas comment en faire un business. Ce système m’a montré comment transformer ma nouvelle expertise en revenus. Ce n’est pas constant mais j’ai de vrais résultats en ayant mis seulement 19€ dans la méthode.",
   },
 ];
 
@@ -540,7 +540,7 @@ export default function App() {
                     </div>
                   </div>
                   <div className={s.testimonialStars}>
-                    {'★'.repeat(5)}
+                    {''.repeat(5)}
                   </div>
                   <p className={s.testimonialText}>"{testimonial.text}"</p>
                 </RevealItem>
