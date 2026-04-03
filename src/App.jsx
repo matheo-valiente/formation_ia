@@ -963,13 +963,27 @@ export default function App() {
                     <form id="sib-form" method="POST" action="https://b23d41de.sibforms.com/serve/MUIFANF4imD0Az-oN16AXc-6P-CnUoO7G62gGtkxR-9FKuxoIbhVr_aaVrVH0n4p_ubXNx0EnTBJVXG_G7GdO0h0KdNbCggpuE7ctV3cCVIMqQjheJF-kOQY5BCsELOOv-XMyZKNwRieareB_T1o3EwdnKj-uNNt2IA6SlJ_ASqOzf_E6ajYfHj5XcRDFqHoiQ2kST_sfnU1uO6jgA==" data-type="subscription">
                       <div style={{ padding: '8px 0' }}>
                         <div className="sib-form-block" style={{ fontSize: '32px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3C4858', backgroundColor: 'transparent' }}>
-                          <p>La Newsletter numéro 1 sur l&apos;IA en France</p>
+                          <p>
+                            La Newsletter numéro 1 sur l&apos;IA en France{' '}
+                            <svg
+                              width="22"
+                              height="15"
+                              viewBox="0 0 3 2"
+                              role="img"
+                              aria-label="Drapeau français"
+                              style={{ display: 'inline-block', verticalAlign: '-2px', borderRadius: '2px', overflow: 'hidden' }}
+                            >
+                              <rect width="1" height="2" x="0" y="0" fill="#0055A4" />
+                              <rect width="1" height="2" x="1" y="0" fill="#FFFFFF" />
+                              <rect width="1" height="2" x="2" y="0" fill="#EF4135" />
+                            </svg>
+                          </p>
                         </div>
                       </div>
                       <div style={{ padding: '8px 0' }}>
                         <div className="sib-form-block" style={{ fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#3C4858', backgroundColor: 'transparent' }}>
                           <div className="sib-text-form-block">
-                            <p>Chaque jour, recevez les 3 actus les plus importantes de l&apos;IA !</p>
+                            <p>Chaque matin, tu reçois les 3 actus les plus importantes de l&apos;IA, résumés en 2 minutes. Juste l'essentiel pour rester à la page !</p>
                           </div>
                         </div>
                       </div>
@@ -978,15 +992,15 @@ export default function App() {
                           <div className="form__entry entry_block">
                             <div className="form__label-row ">
                               <label className="entry__label" style={{ fontWeight: 700, textAlign: 'left', fontSize: '16px', fontFamily: 'Helvetica, sans-serif', color: '#3c4858' }} htmlFor="EMAIL" data-required="*">
-                                Veuillez renseigner votre adresse email pour vous inscrire
+                                Renseigne ton adresse email pour t'inscrire
                               </label>
                               <div className="entry__field">
-                                <input className="input" type="text" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="EMAIL" data-required="true" required />
+                                <input className="input" type="text" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="Ton email" data-required="true" required />
                               </div>
                             </div>
                             <label className="entry__error entry__error--primary" style={{ fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949' }} />
                             <label className="entry__specification" style={{ fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4' }}>
-                              Ex. : abc@xyz.com
+                              Pas de spam, promis !
                             </label>
                           </div>
                         </div>
@@ -997,7 +1011,7 @@ export default function App() {
                             <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
                               <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                             </svg>
-                            S&apos;INSCRIRE
+                            S&apos;INSCRIRE GRATUITEMENT
                           </button>
                         </div>
                       </div>
