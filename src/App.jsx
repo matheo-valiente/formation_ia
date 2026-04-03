@@ -322,6 +322,7 @@ export default function App() {
   const [legalPage, setLegalPage] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [newsletterOpen, setNewsletterOpen] = useState(false);
+  const [isMobileViewport, setIsMobileViewport] = useState(() => window.innerWidth <= 600);
   const [ctaGateOpen, setCtaGateOpen] = useState(false);
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaGateError, setCtaGateError] = useState('');
@@ -363,6 +364,48 @@ export default function App() {
       document.body.appendChild(script);
     }
 
+    const overrideStyleId = 'brevo-newsletter-overrides';
+    if (!document.getElementById(overrideStyleId)) {
+      const style = document.createElement('style');
+      style.id = overrideStyleId;
+      style.textContent = `
+        [data-newsletter-popup="true"] #EMAIL {
+          background: #ffffff !important;
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+          caret-color: #000000 !important;
+          border: 1px solid rgba(122, 111, 246, 0.32) !important;
+        }
+        [data-newsletter-popup="true"] #EMAIL:focus {
+          color: #000000 !important;
+          -webkit-text-fill-color: #000000 !important;
+          caret-color: #000000 !important;
+        }
+        [data-newsletter-popup="true"] #EMAIL:-webkit-autofill,
+        [data-newsletter-popup="true"] #EMAIL:-webkit-autofill:hover,
+        [data-newsletter-popup="true"] #EMAIL:-webkit-autofill:focus {
+          -webkit-text-fill-color: #000000 !important;
+          transition: background-color 9999s ease-out 0s;
+        }
+        [data-newsletter-popup="true"] #EMAIL::placeholder {
+          color: #64748b !important;
+        }
+        [data-newsletter-popup="true"] .sib-form-block__button {
+          font-size: 15px !important;
+          padding: 14px 18px !important;
+        }
+        @media (max-width: 600px) {
+          [data-newsletter-popup="true"] .sib-form-block__button {
+            font-size: 12px !important;
+            padding: 10px 12px !important;
+            min-height: 40px !important;
+            line-height: 1.2 !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
     const delayedReopen = window.setTimeout(() => {
       setNewsletterOpen(true);
     }, 5 * 60 * 1000);
@@ -371,6 +414,33 @@ export default function App() {
       window.clearTimeout(delayedReopen);
     };
   }, []);
+
+  useEffect(() => {
+    const onResize = () => setIsMobileViewport(window.innerWidth <= 600);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
+    if (!newsletterOpen) return undefined;
+    const successEl = document.getElementById('success-message');
+    if (!successEl) return undefined;
+
+    const closeIfVisible = () => {
+      const style = window.getComputedStyle(successEl);
+      const isVisible = style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0';
+      if (isVisible) setNewsletterOpen(false);
+    };
+
+    const observer = new MutationObserver(() => closeIfVisible());
+    observer.observe(successEl, { attributes: true, childList: true, subtree: true });
+    const timer = window.setInterval(closeIfVisible, 400);
+
+    return () => {
+      observer.disconnect();
+      window.clearInterval(timer);
+    };
+  }, [newsletterOpen]);
   
   const openCtaGate = () => {
     setCtaGateError('');
@@ -935,7 +1005,7 @@ export default function App() {
               <button className={s.modalClose} onClick={() => setNewsletterOpen(false)}>✕</button>
             </div>
             <div className={s.modalBody}>
-              <div className={`sib-form ${s.newsletterForm}`} style={{ textAlign: 'center', backgroundColor: 'transparent' }}>
+              <div data-newsletter-popup="true" className={`sib-form ${s.newsletterForm}`} style={{ textAlign: 'center', backgroundColor: 'transparent' }}>
                 <div id="sib-form-container" className="sib-form-container">
                   <div id="error-message" className="sib-form-message-panel" style={{ fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949', maxWidth: '540px' }}>
                     <div className="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -960,7 +1030,18 @@ export default function App() {
                   </div>
                   <div />
                   <div id="sib-container" className="sib-container--large sib-container--vertical" style={{ textAlign: 'center', backgroundColor: 'rgba(255,255,255,1)', maxWidth: '540px', borderRadius: '3px', borderWidth: '1px', borderColor: '#C0CCD9', borderStyle: 'solid', direction: 'ltr' }}>
-                    <form id="sib-form" method="POST" action="https://b23d41de.sibforms.com/serve/MUIFANF4imD0Az-oN16AXc-6P-CnUoO7G62gGtkxR-9FKuxoIbhVr_aaVrVH0n4p_ubXNx0EnTBJVXG_G7GdO0h0KdNbCggpuE7ctV3cCVIMqQjheJF-kOQY5BCsELOOv-XMyZKNwRieareB_T1o3EwdnKj-uNNt2IA6SlJ_ASqOzf_E6ajYfHj5XcRDFqHoiQ2kST_sfnU1uO6jgA==" data-type="subscription">
+                    <form
+                      id="sib-form"
+                      method="POST"
+                      action="https://b23d41de.sibforms.com/serve/MUIFANF4imD0Az-oN16AXc-6P-CnUoO7G62gGtkxR-9FKuxoIbhVr_aaVrVH0n4p_ubXNx0EnTBJVXG_G7GdO0h0KdNbCggpuE7ctV3cCVIMqQjheJF-kOQY5BCsELOOv-XMyZKNwRieareB_T1o3EwdnKj-uNNt2IA6SlJ_ASqOzf_E6ajYfHj5XcRDFqHoiQ2kST_sfnU1uO6jgA=="
+                      data-type="subscription"
+                      onSubmit={(e) => {
+                        const form = e.currentTarget;
+                        if (!form.checkValidity()) return;
+                        // Close only when the email input is valid.
+                        window.setTimeout(() => setNewsletterOpen(false), 300);
+                      }}
+                    >
                       <div style={{ padding: '8px 0' }}>
                         <div className="sib-form-block" style={{ fontSize: '32px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3C4858', backgroundColor: 'transparent' }}>
                           <p>
@@ -995,7 +1076,17 @@ export default function App() {
                                 Renseigne ton adresse email pour t'inscrire
                               </label>
                               <div className="entry__field">
-                                <input className="input" type="text" id="EMAIL" name="EMAIL" autoComplete="off" placeholder="Ton email" data-required="true" required />
+                                <input
+                                  className={`input ${s.newsletterEmailInput}`}
+                                  type="text"
+                                  id="EMAIL"
+                                  name="EMAIL"
+                                  autoComplete="off"
+                                  placeholder="Ton email"
+                                  data-required="true"
+                                  required
+                                  style={{ backgroundColor: '#ffffff', color: '#000000' }}
+                                />
                               </div>
                             </div>
                             <label className="entry__error entry__error--primary" style={{ fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949' }} />
@@ -1007,7 +1098,23 @@ export default function App() {
                       </div>
                       <div style={{ padding: '8px 0' }}>
                         <div className="sib-form-block" style={{ textAlign: 'left' }}>
-                          <button className="sib-form-block__button sib-form-block__button-with-loader" style={{ fontSize: '16px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#FFFFFF', backgroundColor: '#3E4857', borderRadius: '3px', borderWidth: '0px' }} form="sib-form" type="submit">
+                          <button
+                            className={`sib-form-block__button sib-form-block__button-with-loader ${s.newsletterSubmitBtn}`}
+                            style={{
+                              fontSize: isMobileViewport ? '12px' : '16px',
+                              textAlign: 'left',
+                              fontWeight: 700,
+                              fontFamily: 'Helvetica, sans-serif',
+                              color: '#FFFFFF',
+                              backgroundColor: '#3E4857',
+                              borderRadius: '3px',
+                              borderWidth: '0px',
+                              padding: isMobileViewport ? '10px 12px' : '14px 18px',
+                              minHeight: isMobileViewport ? '40px' : 'auto',
+                            }}
+                            form="sib-form"
+                            type="submit"
+                          >
                             <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
                               <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                             </svg>
