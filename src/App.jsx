@@ -323,6 +323,8 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [newsletterOpen, setNewsletterOpen] = useState(false);
   const [isMobileViewport, setIsMobileViewport] = useState(() => window.innerWidth <= 600);
+  const [newsletterError, setNewsletterError] = useState('');
+  const [newsletterSubmitting, setNewsletterSubmitting] = useState(false);
   const [ctaGateOpen, setCtaGateOpen] = useState(false);
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaGateError, setCtaGateError] = useState('');
@@ -474,6 +476,45 @@ export default function App() {
     setCtaGateSubmitting(false);
     setCtaGateOpen(false);
     window.location.href = SKOOL;
+  };
+
+  const handleNewsletterSubmit = async (e) => {
+    e.preventDefault();
+    setNewsletterError('');
+
+    const form = e.currentTarget;
+    const emailInput = form.querySelector('#EMAIL');
+    const email = String(emailInput?.value || '').trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    if (!isValid) {
+      setNewsletterError('Entre une adresse email valide.');
+      return;
+    }
+
+    setNewsletterSubmitting(true);
+    try {
+      const payload = new URLSearchParams();
+      payload.set('EMAIL', email);
+      payload.set('email_address_check', '');
+      payload.set('locale', 'fr');
+
+      await fetch(form.action, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        },
+        body: payload.toString(),
+      });
+
+      setNewsletterSubmitting(false);
+      setNewsletterOpen(false);
+      form.reset();
+    } catch (err) {
+      setNewsletterSubmitting(false);
+      setNewsletterError("Impossible d'envoyer le formulaire pour le moment. Réessaie.");
+    }
   };
 
   return (
@@ -1035,12 +1076,7 @@ export default function App() {
                       method="POST"
                       action="https://b23d41de.sibforms.com/serve/MUIFANF4imD0Az-oN16AXc-6P-CnUoO7G62gGtkxR-9FKuxoIbhVr_aaVrVH0n4p_ubXNx0EnTBJVXG_G7GdO0h0KdNbCggpuE7ctV3cCVIMqQjheJF-kOQY5BCsELOOv-XMyZKNwRieareB_T1o3EwdnKj-uNNt2IA6SlJ_ASqOzf_E6ajYfHj5XcRDFqHoiQ2kST_sfnU1uO6jgA=="
                       data-type="subscription"
-                      onSubmit={(e) => {
-                        const form = e.currentTarget;
-                        if (!form.checkValidity()) return;
-                        // Close only when the email input is valid.
-                        window.setTimeout(() => setNewsletterOpen(false), 300);
-                      }}
+                      onSubmit={handleNewsletterSubmit}
                     >
                       <div style={{ padding: '8px 0' }}>
                         <div className="sib-form-block" style={{ fontSize: '32px', textAlign: 'left', fontWeight: 700, fontFamily: 'Helvetica, sans-serif', color: '#3C4858', backgroundColor: 'transparent' }}>
@@ -1078,7 +1114,7 @@ export default function App() {
                               <div className="entry__field">
                                 <input
                                   className={`input ${s.newsletterEmailInput}`}
-                                  type="text"
+                                  type="email"
                                   id="EMAIL"
                                   name="EMAIL"
                                   autoComplete="off"
@@ -1089,6 +1125,7 @@ export default function App() {
                                 />
                               </div>
                             </div>
+                            {newsletterError && <p className={s.newsletterError}>{newsletterError}</p>}
                             <label className="entry__error entry__error--primary" style={{ fontSize: '16px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#661d1d', backgroundColor: '#ffeded', borderRadius: '3px', borderColor: '#ff4949' }} />
                             <label className="entry__specification" style={{ fontSize: '12px', textAlign: 'left', fontFamily: 'Helvetica, sans-serif', color: '#8390A4' }}>
                               Pas de spam, promis !
@@ -1114,11 +1151,12 @@ export default function App() {
                             }}
                             form="sib-form"
                             type="submit"
+                            disabled={newsletterSubmitting}
                           >
                             <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512">
                               <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
                             </svg>
-                            S&apos;INSCRIRE GRATUITEMENT
+                            {newsletterSubmitting ? 'ENVOI...' : "S'INSCRIRE GRATUITEMENT"}
                           </button>
                         </div>
                       </div>

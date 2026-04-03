@@ -2221,6 +2221,13 @@
   padding: 14px 18px !important;
 }
 
+.newsletterError {
+  margin: 8px 0 6px;
+  font-size: 13px;
+  color: #f87171;
+  text-align: left;
+}
+
 .newsletterForm :global(#error-message.sib-form-message-panel),
 .newsletterForm :global(#success-message.sib-form-message-panel) {
   max-width: 100% !important;
