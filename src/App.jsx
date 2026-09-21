@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import s from './App.module.css';
 
-const STRIPE_CHECKOUT = 'https://buy.stripe.com/7sY14oa8Y9pZ4N26MUcjS00';
+const STRIPE_CHECKOUT = 'https://buy.stripe.com/fZu3cw5Yw2qF2AOcqz6kg00';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
 const FACEBOOK = 'https://www.facebook.com/profile.php?id=61588001016498';
