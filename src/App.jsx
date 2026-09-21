@@ -62,7 +62,7 @@ const features = [
       </svg>
     ),
     title: 'Module 1 : Choisir ton modèle',
-    desc: "Nous verrons comment identifier le modèle de vidéos IA qui te correspond et valider sa viabilité économique. Tu repartiras avec un plan d'attaque précis — sans jamais montrer ton visage.",
+    desc: "Nous verrons comment identifier le modèle de vidéos IA qui te correspond et valider sa viabilité économique. Tu repartiras avec un plan d'attaque précis, sans jamais montrer ton visage.",
   },
   {
     icon: (
@@ -395,7 +395,7 @@ export default function App() {
           </h1>
 
           <p className={s.subtitle}>
-            Crée 30 jours de contenu en 4 heures et transforme tes vidéos en revenus récurrents — sans montrer ton visage.
+            Crée 30 jours de contenu en 4 heures et transforme tes vidéos en revenus récurrents, sans montrer ton visage.
           </p>
 
           <div className={s.heroActions}>
