@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import s from './App.module.css';
 
-const SKOOL = 'https://www.skool.com/intelligence-artificielle-info-7565/about';
-const LEAD_API = import.meta.env.VITE_LEAD_API_URL || '/api/lead';
+const STRIPE_CHECKOUT = 'https://buy.stripe.com/7sY14oa8Y9pZ4N26MUcjS00';
 const INSTA = 'https://www.instagram.com/intelligence_artificielle_info';
 const LINKEDIN = 'https://www.linkedin.com/in/augustinp/';
 const FACEBOOK = 'https://www.facebook.com/profile.php?id=61588001016498';
@@ -255,7 +254,7 @@ La formation comprend : des vidéos, des documents PDF et des exercices pratique
 Le prix de la formation est indiqué au moment de la commande. Il est susceptible d'être modifié à tout moment, mais le prix applicable est celui en vigueur au moment de la commande.
 
 **Article 4 — Paiement**
-Le paiement est effectué en ligne via la plateforme sécurisée Skool. Les moyens de paiement acceptés incluent les moyens proposés par Skool.
+Le paiement est effectué en ligne via la plateforme sécurisée Stripe (Stripe Checkout). Les moyens de paiement acceptés sont ceux proposés par Stripe au moment du paiement.
 
 **Article 5 — Accès à la formation**
 L'accès à la formation est immédiat après confirmation du paiement. Un email de confirmation est envoyé à l'adresse indiquée lors de l'achat.
@@ -283,7 +282,7 @@ intelligence_artificielle_info
 Email : contact@intelligence-artificielle-info.com
 
 **Données collectées**
-Lors de l'achat de la formation, les données suivantes sont collectées via Skool : nom, adresse email et informations de paiement. Ces données sont nécessaires au traitement de votre commande.
+Lors de l'achat de la formation, les données suivantes sont collectées via Stripe (paiement) : nom, adresse email et informations de paiement. Ces données sont nécessaires au traitement de votre commande. L'inscription à la newsletter (optionnelle) est gérée séparément via notre formulaire d’inscription.
 
 **Utilisation des données**
 Vos données sont utilisées exclusivement pour :
@@ -292,7 +291,7 @@ Vos données sont utilisées exclusivement pour :
 - La communication relative à votre achat
 
 **Sous-traitants**
-- Skool (plateforme de formation et de paiement) — skool.com
+- Stripe (paiement sécurisé) — stripe.com
 - Vercel (hébergement du site) — vercel.com
 
 **Cookies**
@@ -305,7 +304,7 @@ Vos données sont conservées pendant la durée nécessaire à la gestion de vot
 Conformément au RGPD, vous disposez des droits suivants : accès, rectification, suppression, limitation, portabilité et opposition. Pour exercer ces droits, contactez-nous à : contact@intelligence-artificielle-info.com
 
 **Sécurité**
-Les paiements sont sécurisés par Skool. Nous ne stockons aucune donnée bancaire sur nos serveurs.
+Les paiements sont sécurisés par Stripe. Nous ne stockons aucune donnée bancaire sur nos serveurs.
 
 **Contact**
 Pour toute question relative à vos données personnelles : contact@intelligence-artificielle-info.com`,
@@ -320,7 +319,7 @@ export default function App() {
   const [ctaEmail, setCtaEmail] = useState('');
   const [ctaGateError, setCtaGateError] = useState('');
   const [ctaGateSubmitting, setCtaGateSubmitting] = useState(false);
-  
+
   const openCtaGate = () => {
     setCtaGateError('');
     setCtaGateOpen(true);
@@ -354,7 +353,7 @@ export default function App() {
     setCtaGateOpen(false);
     window.location.href = SKOOL;
   };
-  
+
 
   return (
     <div className={s.page}>
@@ -374,9 +373,8 @@ export default function App() {
           </div>
           <div className={s.navRight}>
             <a
-              href="#"
+              href={STRIPE_CHECKOUT}
               className={s.navCta}
-              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Accéder à la méthode
             </a>
@@ -403,9 +401,9 @@ export default function App() {
               <a href="#objections" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('objections'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>Objections</a>
               <a href="#about" className={s.panelLink} onClick={(e) => { e.preventDefault(); setMenuOpen(false); const el = document.getElementById('about'); if (el) { setTimeout(() => { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); }, 100); } }}>À propos</a>
               <a
-                href="#"
+                href={STRIPE_CHECKOUT}
                 className={s.panelCta}
-                onClick={(e) => { e.preventDefault(); setMenuOpen(false); openCtaGate(); }}
+                onClick={() => setMenuOpen(false)}
               >
                 Accéder à la méthode
               </a>
@@ -436,9 +434,8 @@ export default function App() {
 
           <div className={s.heroActions}>
             <a
-              href="#"
+              href={STRIPE_CHECKOUT}
               className={s.ctaMain}
-              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Accéder à la méthode
               <Arrow />
@@ -608,9 +605,8 @@ export default function App() {
                 </li>
               </ul>
               <a
-                href="#"
+                href={STRIPE_CHECKOUT}
                 className={s.compCta}
-                onClick={(e) => { e.preventDefault(); openCtaGate(); }}
               >
                 Commencer maintenant
                 <Arrow />
@@ -700,9 +696,8 @@ export default function App() {
 
           <div className={s.finalCtaWrap}>
             <a
-              href="#"
+              href={STRIPE_CHECKOUT}
               className={s.finalCta}
-              onClick={(e) => { e.preventDefault(); openCtaGate(); }}
             >
               Découvrir la méthode
               <Arrow />
@@ -750,7 +745,7 @@ export default function App() {
               <a href="#temoignages" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('temoignages'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Témoignages</a>
               <a href="#features" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('features'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Méthode</a>
               <a href="#objections" className={s.footerLink} onClick={(e) => { e.preventDefault(); const el = document.getElementById('objections'); if (el) { const y = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({ top: y, behavior: 'smooth' }); } }}>Objections</a>
-              <a href="#" className={s.footerLink} onClick={(e) => { e.preventDefault(); openCtaGate(); }}>Accéder à la méthode</a>
+              <a href={STRIPE_CHECKOUT} className={s.footerLink}>Accéder à la méthode</a>
             </div>
 
             <div className={s.footerCol}>
@@ -811,39 +806,6 @@ export default function App() {
         </div>
       )}
 
-      {ctaGateOpen && (
-        <div className={s.modalOverlay} onClick={() => setCtaGateOpen(false)}>
-          <div className={s.modal} onClick={(e) => e.stopPropagation()}>
-            <div className={s.modalHeader}>
-              <h2 className={s.modalTitle}>Accéder à la méthode</h2>
-              <button className={s.modalClose} onClick={() => setCtaGateOpen(false)}>✕</button>
-            </div>
-            <div className={s.modalBody}>
-              <form className={s.ctaGateForm} onSubmit={handleCtaGateSubmit}>
-                <label className={s.ctaGateLabel} htmlFor="cta-email">Email</label>
-                <input
-                  id="cta-email"
-                  className={s.ctaGateInput}
-                  type="email"
-                  inputMode="email"
-                  autoComplete="email"
-                  placeholder="ton@email.com"
-                  value={ctaEmail}
-                  onChange={(e) => setCtaEmail(e.target.value)}
-                  required
-                />
-                {ctaGateError && <p className={s.ctaGateError}>{ctaGateError}</p>}
-                <button className={s.ctaGateSubmit} type="submit" disabled={ctaGateSubmitting}>
-                  {ctaGateSubmitting ? 'Redirection…' : 'Continuer'}
-                </button>
-                <p className={s.ctaGateNote}>
-                  Tu seras redirigé vers la méthode après validation de ton email.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

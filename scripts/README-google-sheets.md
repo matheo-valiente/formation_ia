@@ -28,11 +28,13 @@
    - **Value** : l’URL copiée à l’étape 3 (ex. `https://script.google.com/macros/s/xxxx/exec`).
 4. Redéploie le projet pour que la variable soit prise en compte.
 
-Après ça, chaque soumission du formulaire « Accéder à la méthode » (email valide) envoie l’email à l’API Vercel (`/api/lead`), qui l’enregistre dans ton Google Sheet via le script.
+Après ça, chaque appel à l’API Vercel (`/api/lead`) peut enregistrer un email dans ton Google Sheet via le script (utile si tu branches un formulaire ou un outil tiers vers cette route).
+
+Les inscriptions à la newsletter passent par Brevo sur le site ; l’achat de la formation se fait via Stripe Checkout.
 
 ## Développement local
 
-En local, `npm run dev` ne lance pas l’API Vercel. Pour tester l’envoi d’emails :
+En local, `npm run dev` ne lance pas l’API Vercel. Pour tester `/api/lead` :
 
 - Soit lancer `vercel dev` (après `npm i -g vercel`) pour que `/api/lead` soit disponible localement (en configurant `GOOGLE_SHEETS_WEBAPP_URL` dans `.env` ou `.env.local`).
-- Soit déployer une fois sur Vercel et définir `VITE_LEAD_API_URL=https://ton-projet.vercel.app/api/lead` dans un fichier `.env.local` pour que le front envoie les leads à la version déployée.
+- Soit déployer une fois sur Vercel et appeler `https://ton-projet.vercel.app/api/lead` depuis un client HTTP (Postman, script, etc.).
